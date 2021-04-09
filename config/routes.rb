@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :developers
   root 'pages#home'
   get 'notes/index'
   get 'notes/show'
