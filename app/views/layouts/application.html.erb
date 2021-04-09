@@ -10,10 +10,27 @@
   </head>
 
   <body>
+
+    <nav class="navbar navbar-light bg-light" id="sitenavbar">
+
+      <a class="navbar-brand" href="/">weDevelop</a>
+
+      <div class="nav navbar-nav navbar-right">
+        
+        <%= link_to "Log In", new_developer_registration_path, class: 'btn btn-primary navbar-btn', method: :get %>
+
+      </div>
+
+    </nav>
+
+    <div class="container">
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      
+
       <%= yield %>
+
+    </div>
  
   </body>
 </html>
