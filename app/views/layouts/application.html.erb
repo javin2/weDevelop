@@ -16,8 +16,11 @@
       <a class="navbar-brand" href="/">weDevelop</a>
 
       <div class="nav navbar-nav navbar-right">
-        
-        <%= link_to "Log In", new_developer_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
+        <% if current_developer %>
+          <%= link_to "Logout", destroy_developer_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
+        <% else %>
+          <%= link_to "Log In", new_developer_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
+        <% end %>
 
       </div>
 
