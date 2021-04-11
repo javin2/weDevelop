@@ -7,24 +7,26 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-mutate-approach="sync"></script>
+    <script src="https://kit.fontawesome.com/75b0b3b76e.js" crossorigin="anonymous"></script>
   </head>
-
   <body>
-
-    <nav class="navbar navbar-light bg-light" id="sitenavbar">
-
-      <a class="navbar-brand" href="/">weDevelop</a>
-
-      <div class="nav navbar-nav navbar-right">
-        
-        <%= link_to "Log In", new_developer_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
-
+    <div class="navbar">
+      <div class='left'><a class="active" href=""></i>WeDEVELOP</a> 
       </div>
-
-    </nav>
-
+      <div class="center">
+          <a href="">FIND A JOB</a>
+          <a href="">CREATE A PROFILE</a>
+          <a href="">GET PAID</a>
+      </div>
+      <div class="right">
+          <a href="">SIGN UP</a>
+          <div class="divider"></div>
+          <a href="">LOGIN</a>
+          <a href=""><i class="fa fa-lg fa-suitcase icon"></i>POST A JOB</a>
+      </div>
+    </div>
     <div class="container">
-      
       <% if notice.present? %>
         <aside class="alert alert-info">
           <%= notice %>
@@ -43,4 +45,8 @@
     </div>
  
   </body>
+  <footer class="footer">
+    <div class="inner-footer">
+    </div>
+   </footer>
 </html>
