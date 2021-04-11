@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_214047) do
+ActiveRecord::Schema.define(version: 2021_04_11_054840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,26 @@ ActiveRecord::Schema.define(version: 2021_04_08_214047) do
     t.string "state"
     t.string "zipcode"
     t.string "phone"
-    t.string "email"
     t.integer "rate"
     t.string "profile_photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["email"], name: "index_clients_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
   create_table "developers", force: :cascade do |t|
@@ -56,21 +71,23 @@ ActiveRecord::Schema.define(version: 2021_04_08_214047) do
     t.index ["project_id"], name: "index_notes_on_project_id"
   end
 
+  create_table "project_members", force: :cascade do |t|
+    t.integer "developer_id"
+    t.integer "client_id"
+    t.integer "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.date "projected_completion"
     t.string "title"
     t.text "description"
     t.integer "percent_complete"
     t.integer "balance"
-    t.bigint "client_id", null: false
-    t.bigint "developer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_projects_on_client_id"
-    t.index ["developer_id"], name: "index_projects_on_developer_id"
   end
 
   add_foreign_key "notes", "projects"
-  add_foreign_key "projects", "clients"
-  add_foreign_key "projects", "developers"
 end

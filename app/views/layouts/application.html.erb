@@ -17,9 +17,12 @@
 
       <div class="nav navbar-nav navbar-right">
         <% if current_developer %>
-          <%= link_to "Logout", destroy_developer_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
+          <%= link_to "Sign Out", destroy_developer_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
+        <% elsif current_client %>
+          <%= link_to "Sign Out", destroy_client_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
         <% else %>
-          <%= link_to "Log In", new_developer_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
+          <%= link_to "Sign in as Developer", new_developer_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
+          <%= link_to "Sign in as Client", new_client_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
         <% end %>
 
       </div>

@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :client
-  belongs_to :developer
+  
+  has_many :project_members
+  has_many :notes
 end
