@@ -1,6 +1,4 @@
 class ProjectsController < ApplicationController
-  def index
-  end
 
   def show
   end
@@ -10,4 +8,5 @@ class ProjectsController < ApplicationController
 
   def edit
   end
+  
 end

@@ -1,13 +1,6 @@
 class DevelopersController < ApplicationController
-  def index
-  end
 
-  def show
+  def dashboard
   end
-
-  def new
-  end
-
-  def edit
-  end
+  
 end
