@@ -5,5 +5,5 @@ class Developer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 	has_many :project_members
 	has_many :clients, :through => :project_members
-	has_many :projects, :through => :project_members
+	has_many :projects
 end
