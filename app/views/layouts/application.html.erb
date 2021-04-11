@@ -7,32 +7,37 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-mutate-approach="sync"></script>
+    <script src="https://kit.fontawesome.com/75b0b3b76e.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-
-    <nav class="navbar navbar-light bg-light" id="sitenavbar">
-
-      <a class="navbar-brand" href="/">weDevelop</a>
-
-      <div class="nav navbar-nav navbar-right">
-        <% if current_developer %>
-          <%= link_to "Sign Out", destroy_developer_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
-        <% elsif current_client %>
-          <%= link_to "Sign Out", destroy_client_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
-        <% else %>
-          <%= link_to "Sign in as Developer", new_developer_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
-          <%= link_to "Sign in as Client", new_client_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
-        <% end %>
-
+    <div class="navbar">
+      <div class='left'><a class="active" href=""></i>WeDEVELOP</a> 
       </div>
+      
+      <div class="right">
+        <% if current_developer %>
+          <%= link_to "Sign Out", destroy_developer_session_path, method: :delete %>
+        <% elsif current_client %>
+          <%= link_to "Sign Out", destroy_client_session_path, method: :delete %>
+        <% else %>
 
-    </nav>
+          <%= link_to "Sign in as Developer", new_developer_session_path, method: :get %>
+          <div class="divider"></div>
+          <%= link_to "Sign in as Client", new_client_session_path, method: :get %>
+        <% end %>
+          
+          
+      </div>
+    </div>
 
-    <div class="container">
+    
+
+    <div>
       
       <% if notice.present? %>
-        <aside class="alert alert-info">
+        <aside class="alert alert-success">
           <%= notice %>
         </aside>
 
