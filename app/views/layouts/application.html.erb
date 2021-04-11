@@ -13,7 +13,14 @@
 
   <body>
     <div class="navbar">
-      <div class='left'><a class="active" href=""></i>WeDEVELOP</a> 
+      <div class='left'>
+        <% if current_developer %>
+          <%= link_to "WeDEVELOP", developer_root_path %>
+        <% elsif current_client %>
+          <%= link_to "WeDEVELOP", client_root_path %>
+        <% else %>
+          <%= link_to "WeDEVELOP", root_path %>
+        <% end %>
       </div>
       
       <div class="right">
