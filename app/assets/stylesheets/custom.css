@@ -40,6 +40,13 @@ a {
   cursor: pointer;
 }
 
+hr {
+  max-width: 575px;
+  margin: 30px auto 0;
+  border-top: 1px solid eff0f2;
+  height: 1px;
+}
+
 /* -------------NAVBAR-------------- */
 
 .navbar {
@@ -241,14 +248,7 @@ a {
   background-image: url(Angela_Kinsley.jpeg);
 }
 
-.testimonials-section hr {
-  max-width: 575px;
-  margin: 30px auto 0;
-  border-top: 1px solid eff0f2;
-  height: 1px;
-}
-
-.footer {
+footer {
   background-color: #626977;
 }
 
