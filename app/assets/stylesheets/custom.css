@@ -1,10 +1,52 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-text-size-adjust: 100%; */
+}
+
+h3 {
+  font-size: 1.375em;
+  font-weight: 500;
+  color: #2c374a;
+  margin-top: 30px;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.125em;
+  font-weight: 500;
+  line-height: 1.3888888889;
+  margin-top: 15px;
+  color: #2c374a;
+}
+
+h5 {
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 25px;
+  color: #626977;
+}
+
+p {
+  font-size: 0.98em;
+  line-height: 25px;
+  font-weight: normal;
+  color: #626977;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* -------------NAVBAR-------------- */
+
 .navbar {
   width: 100%;
   height: 65px;
   /* background-color: #409bcf; */
-  margin-left: auto;
-  margin-right: auto;
+  /* margin: auto 0; */
   max-width: 100%;
   font-size: 0.75em;
   font-weight: bold;
@@ -13,38 +55,15 @@
 }
 
 .left {
-  flex-basis: auto;
   margin-left: 15px;
 }
 .left a {
-  text-decoration: none;
   font-size: 1.5em;
   font-weight: bold;
-  color: white;
-}
-
-.center {
-  margin-right: 180px;
-}
-
-.center a {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  margin-right: 35px;
-}
-.center a:hover {
-  color: lightseagreen;
 }
 
 .right {
   margin-right: 60px;
-}
-
-.right a {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .right a:nth-child(3) {
@@ -52,14 +71,11 @@
 }
 
 .right a:nth-child(4) {
-  color: white;
   border-radius: 10px;
   padding: 9px 25px;
-  cursor: pointer;
   border: 2px solid white;
   text-align: center;
   line-height: 20px;
-  text-decoration: none;
 }
 
 .right a:hover {
@@ -68,7 +84,7 @@
 }
 
 .icon {
-  line-height: 0px;
+  /* line-height: 0px; */
   margin-right: 8px;
 }
 
@@ -80,19 +96,6 @@
 }
 
 /* -------------BODY-------------- */
-
-.body {
-  background: #fff;
-  color: #626977;
-  font-size: 16px;
-  line-height: 25px;
-  /* margin: 0; */
-  /* padding: 0; */
-  font-family: "Gotham", "Helvetica", "Arial", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
 
 /* @media (min-width: 768px) { */
 /* background-image: url(image.jpeg); */
@@ -160,41 +163,26 @@
 .middle-section {
   margin: 0 auto;
   max-width: 1000px;
-  line-height: 25px;
-  padding: 0;
-  font-family: "Gotham", "Helvetica", "Arial", sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 .middle-section-items {
   margin-top: 30px;
 }
 
-.middle-section h3 {
-  font-size: 1.375em;
-  font-weight: 500;
-  line-height: 1.5909090909;
-  color: #2c374a;
-  margin-top: 30px;
-  text-align: center;
-}
-
 .clearfix {
-  content: " ";
   display: table;
-  margin-top: 35px;
+  margin-top: 15px;
 }
 
 .middle-section-item {
   float: left;
-  width: 30%;
-  margin-left: 33px;
+  width: 29%;
+  margin-left: 28px;
+  margin-right: 15px;
 }
 
 .media-icon {
-  margin-top: 2px;
+  margin-top: 15px;
   width: 35px;
   float: left;
   margin-right: 20px;
@@ -203,21 +191,6 @@
 
 .media-body {
   overflow: hidden;
-  _overflow: visible;
-  zoom: 1;
-}
-.media-body h4 {
-  font-size: 1.125em;
-  font-weight: 500;
-  /* line-height: 1.3888888889; */
-  color: #2c374a;
-}
-
-.media-body p {
-  font-size: 0.98em;
-  line-height: 25px;
-  font-weight: normal;
-  color: #626977;
 }
 
 .testimonials-title {
@@ -268,40 +241,11 @@
   background-image: url(Angela_Kinsley.jpeg);
 }
 
-.testimonial h4 {
-  font-size: 1.125em;
-  font-weight: 500;
-  line-height: 1.3888888889;
-  margin-top: 15px;
-}
-
-.testimonial h5 {
-  font-size: 0.875em;
-  font-weight: 500;
-  line-height: 25px;
-  color: #626977;
-}
-
-.testimonial p {
-  font-size: 0.9375em;
-  line-height: 25px;
-  font-weight: normal;
-  color: #626977;
-}
-
 .testimonials-section hr {
   max-width: 575px;
   margin: 30px auto 0;
   border-top: 1px solid eff0f2;
   height: 1px;
-}
-
-.testimonials-section h3 {
-  font-size: 1.375em;
-  font-weight: 500;
-  color: #2c374a;
-  margin-top: 40px;
-  text-align: center;
 }
 
 .footer {
