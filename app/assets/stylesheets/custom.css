@@ -31,12 +31,15 @@ ul li {
 
 /*========== Landing Image Section =========*/
 
+/* Modified by Steve on 4/12 to adjust the header image */
 .home-intro {
   /*padding-top: 10%;*/
   position:relative;
   height: 75vh;
-  background-size: 100% 100%;
   background-image: url("https://wedevelop.s3-us-west-2.amazonaws.com/weDEVELOP_header_noText_2400x800.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .jumbotron {
