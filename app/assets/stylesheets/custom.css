@@ -32,34 +32,49 @@ ul li {
 /*========== Landing Image Section =========*/
 
 .home-intro {
-  padding-top: 10%;
+  /*padding-top: 10%;*/
+  position:relative;
   height: 75vh;
   background-size: 100% 100%;
-  background-image: url("https://wedevelop.s3-us-west-2.amazonaws.com/weDEVELOP_header.png");
+  background-image: url("https://wedevelop.s3-us-west-2.amazonaws.com/weDEVELOP_header_noText_2400x800.png");
 }
 
 .jumbotron {
-  padding-top: 9%;
+  /*padding-top: 9%;*/
+  width:45%;
   height:40vh;
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(0,0,0,.0);
   color:#2A4A46;
+  position: absolute;
+  top:15%;
+  margin-left:12rem;
+}
+
+.jumbotron h1 {
+  padding-bottom:2rem;
+  font-family: 'Arvo', serif;
+  font-weight: 700;
 }
 
 .jumbotron p {
   padding-bottom:5%;
+  font-family: 'Arvo', serif;
 }
 
 .jumbotron .btn {
-  background-color:#66ff33;
-  border-color:#66ff33;
+  background-color:#ff9900;
+  padding:15px;
+  border-color:#ff9900;
   color: #2A4A46;
+  font-family: 'Arvo', serif;
 }
 
 /*============= Business Points Section ===========*/
 
 #business-points {
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 5%;
+  margin-bottom: 5%;
 }
 
 #business-points img {
@@ -70,6 +85,7 @@ ul li {
 
 #business-points h3 {
   margin-bottom: 5em;
+  font-family: 'Arvo', serif;
 }
 
 
@@ -89,6 +105,7 @@ ul li {
 }
 
 #filler-img h1 {
+  font-family: 'Arvo', serif;
   position:absolute;
   top:50%;
   left:32%;
@@ -101,7 +118,7 @@ ul li {
 /*=========== Reviews Section =============*/
 
 #reviews {
-  height:75vh;
+  height:85vh;
 }
 
 #reviews img {
