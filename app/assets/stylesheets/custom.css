@@ -125,3 +125,21 @@ ul li {
   width:500px;
   height:416px;
 }
+
+
+/*=========== Authentication Forms ===========*/
+
+.devise-form {
+  margin-top:10rem;
+}
+
+.devise-wrapper {
+  font-family: 'Arvo', serif;
+  border: 5px solid orange;
+  padding:5rem;
+}
+
+.devise-wrapper .form-group {
+  margin-bottom: 2rem;
+
+}
