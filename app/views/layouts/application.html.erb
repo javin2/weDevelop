@@ -9,35 +9,50 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-mutate-approach="sync"></script>
     <script src="https://kit.fontawesome.com/75b0b3b76e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
   </head>
 
   <body>
-    <div class="navbar">
-      <div class='left'>
-        <% if current_developer %>
-          <%= link_to "WeDEVELOP", developer_root_path %>
-        <% elsif current_client %>
-          <%= link_to "WeDEVELOP", client_root_path %>
-        <% else %>
-          <%= link_to "WeDEVELOP", root_path %>
-        <% end %>
-      </div>
-      
-      <div class="right">
-        <% if current_developer %>
-          <%= link_to "Sign Out", destroy_developer_session_path, method: :delete %>
-        <% elsif current_client %>
-          <%= link_to "Sign Out", destroy_client_session_path, method: :delete %>
-        <% else %>
 
-          <%= link_to "Sign in as Developer", new_developer_session_path, method: :get %>
-          <div class="divider"></div>
-          <%= link_to "Sign in as Client", new_client_session_path, method: :get %>
-        <% end %>
-          
-          
-      </div>
-    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-inverse">
+        <div class="d-flex flex-grow-1">
+            <% if current_developer %>
+              <a class="navbar-brand d-none d-lg-inline-block" href="/developers/dashboard"> weDevelop </a>
+            <% elsif current_client %>
+              <a class="navbar-brand d-none d-lg-inline-block" href="/clients/dashboard"> weDevelop </a>
+            <% else %>
+              <a class="navbar-brand d-none d-lg-inline-block" href="/"> weDevelop </a>
+            <% end %>
+            
+            <div class="w-100 text-right">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right" id="nav-buttons">
+            <ul class="navbar-nav ms-auto flex-nowrap">
+              <% if current_developer %>
+                <li class="nav-item" >
+                  <%= link_to "Sign Out", destroy_developer_session_path, method: :delete, class: 'nav-link m-2 menu-item' %>
+                </li>
+              <% elsif current_client %>
+                <li class="nav-item">
+                  <%= link_to "Sign Out", destroy_client_session_path, method: :delete, class: 'nav-link m-2 menu-item' %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                    <a href="/developers/sign_in" class="nav-link m-2 menu-item">Sign In as Developer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/clients/sign_in" class="nav-link m-2 menu-item">Sign In as Client</a>
+                </li>
+              <% end %>
+            </ul>
+        </div>
+    </nav>
+  
 
     
 

@@ -1,124 +1,117 @@
-<div class="body">
-    <div class="image-header is-logged-out">
-        <div class="image-header-content">
-            <h1 class="image-header-title">Where Locals Get Hired</h1>
-            <h5 class="image-header-subtitle">WeDevelop is the place where local employers hire great local talent</h5>
-            <%= link_to "Register As A Developer Today", new_developer_registration_path, method: :get, class: 'btn btn-success' %>
+
+
+<div class="container-fluid home-intro">
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Hello, world!</h1>
+              <p class="lead">Here is the spot we will insert our little blurb about our company. A little hook to pique the interest of developers that may need something like this</p>
+              
+              
+              <a class="btn btn-primary btn-lg" href="/developers/sign_up" role="button">Sign Up as a developer today!</a>
+          </div>
+    </div>    
+</div>
+
+
+
+
+<div class="container py-5" id="business-points">
+    <div class="row py-5">
+        <div class="col-md-12 text-center">
+            <h3 class="font-weight-bold">There are so many benefits to joining our platform! Here are a few:</h3>
         </div>
-    </div>
-    <section class="middle-section">
-        <h3>WeDevelop is the place where local talent gets hired</h3>
-        <div class="middle-section-items">
-            <div class="clearfix">
-                <div class="middle-section-item">
-                    <div class="media">
-                        <div class="media-icon">
-                        <i class="fa fa-2x fa-location-arrow"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4>59,000+ local employers</h4>
-                            <p>
-                                Meet 59,000+ WeDevelop employers that follow WeDevelop’s community oriented guidelines.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="middle-section-item">
-                    <div class="media">
-                        <div class="media-icon">
-                           <i class="fa fa-2x fa-clock"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4>1-Click Apply</h4>
-                            <p>
-                                Upload your resume to unlock 1-Click Apply, the fastest application you’ll ever submit.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="middle-section-item">
-                    <div class="media">
-                        <div class="media-icon">
-                           <i class="fa fa-2x fa-bullhorn"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4>Never miss a job</h4>
-                            <p>
-                                Follow your favorite businesses to know when they are hiring.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-6">
+                <img src="https://wedevelop.s3-us-west-2.amazonaws.com/round1.png" class="img-fluid rounded-circle">
+                <h6 class="mb-3 mt-5">Talking Point Here</h6>
+                <p class="mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
             </div>
-                        <div class="clearfix">
-                <div class="middle-section-item">
-                    <div class="media">
-                        <div class="media-icon">
-                          <i class="fa fa-2x fa-search"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4>Application transparency</h4>
-                            <p>
-                                Get notified about changes to your application status in real time.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="middle-section-item">
-                    <div class="media">
-                        <div class="media-icon">
-                            <i class="fa fa-2x fa-file-signature"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4>Talent network</h4>
-                            <p>
-                                Join WeDevelop Talent to have a WeDevelop Talent Specialist match you with job opportunities.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="middle-section-item">
-                    <div class="media">
-                        <div class="media-icon">
-                            <i class="fa fa-2x fa-hand-holding-usd"></i>                  
-                        </div>
-                        <div class="media-body">
-                            <h4>Get paid 100$</h4>
-                            <p>
-                                Refer a friend and get $100 if they get hired through a WeDevelop Talent Specialist.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-4 col-md-6">
+                <img src="https://wedevelop.s3-us-west-2.amazonaws.com/round2.png" class="img-fluid rounded-circle">
+                <h6 class="mb-3 mt-5">Talking Point Here</h6>
+                <p class="mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <img src="https://wedevelop.s3-us-west-2.amazonaws.com/round3.png" class="img-fluid rounded-circle">
+                <h6 class="mb-3 mt-5">Talking Point Here</h6>
+                <p class="mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
             </div>
         </div>
-    </section>
-    <section class="testimonials-section">
-        <hr></hr> 
-        <h3>Job seekers love WeDevelop</h3>
-        <div class="testimonial">
-            <div class="testimonial-image image-1"></div>
-            <h4>Sommelier &amp; Sales Associate at Bay Grape</h4>
-            <h5>Jenna Fischer</h5>
-            <p>
-                “I really liked Localwise’s philosophy on getting a job in your neighborhood and supporting your community. Localwise is easy to use, the layout is clean, and the site is easy to navigate.”
-            </p>
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-6">
+                <img src="https://wedevelop.s3-us-west-2.amazonaws.com/round4.png" class="img-fluid rounded-circle">
+                <h6 class="mb-3 mt-5">Talking Point Here</h6>
+                <p class="mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <img src="https://wedevelop.s3-us-west-2.amazonaws.com/round5.png" class="img-fluid rounded-circle">
+                <h6 class="mb-3 mt-5">Talking Point Here</h6>
+                <p class="mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <img src="https://wedevelop.s3-us-west-2.amazonaws.com/round6.png" class="img-fluid rounded-circle">
+                <h6 class="mb-3 mt-5">Talking Point Here</h6>
+                <p class="mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+            </div>
         </div>
-        <div class="testimonial">
-            <div class="testimonial-image image-2"> </div>
-            <h4>Quantitative Research at Resource Development Associates</h4>
-            <h5>Steve Carrel</h5>
-            <p>
-                “Localwise is an amazing resource and it constantly informs me of available opportunities. Localwise helped me narrow my search so I wouldn’t get bogged down with jobs that didn’t cater to my interests.”
-            </p>
-        </div>
-        <div class="testimonial">
-        <div class="testimonial-image image-3"> </div>
-        <h4>Marketing and Merchandising at Viscera</h4>
-        <h5>Angela Kinsley</h5>
-        <p>
-            “Localwise is an amazing resource and it constantly informs me of available opportunities. Localwise helped me narrow my search so I wouldn’t get bogged down with jobs that didn’t cater to my interests.”
-        </p>
     </div>
-    </section>
+</div>
+
+
+
+<div class="container-fluid" id="filler-img">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h1>Developers love using weDevelop!</h1>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid" id="reviews">
+    <div class="row text-center">
+        <div class="col-lg-4 col-md-12">
+            <img src="https://wedevelop.s3-us-west-2.amazonaws.com/sigmund-jzz_3jWMzHA-unsplash.jpg" class="img-fluid img-thumbnail rounded"></img>
+            <h5 class="person-review-details mb-3 mt-5">Name Here, Location Here</h5>
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <img src="https://wedevelop.s3-us-west-2.amazonaws.com/cesar-rincon-XHVpWcr5grQ-unsplash.jpg" class="img-fluid img-thumbnail rounded"></img>
+            <h5 class="person-review-details mb-3 mt-5">Name Here, Location Here</h5>
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <img src="https://wedevelop.s3-us-west-2.amazonaws.com/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash.jpg" class="img-fluid img-thumbnail rounded"></img>
+            <h5 class="person-review-details mb-3 mt-5">Name Here, Location Here</h5>
+            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
 </div>
