@@ -169,50 +169,6 @@ hr {
   padding-left: var(--bs-gutter-x);
 }
 
-/* ----------------MIDDLE SECTION------------ */
-.middle-section {
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.middle-section-items {
-  margin-top: 30px;
-}
-
-.clearfix {
-  display: table;
-  margin-top: 15px;
-}
-
-.middle-section-item {
-  float: left;
-  width: 29%;
-  margin-left: 28px;
-  margin-right: 15px;
-  text-align: left;
-}
-
-.media-icon {
-  margin-top: 15px;
-  width: 35px;
-  float: left;
-  margin-right: 20px;
-  color: lightseagreen;
-}
-
-.media-body {
-  overflow: hidden;
-}
-
-.testimonials-title {
-  font-size: 1.375em;
-  font-weight: 500;
-  line-height: 1.5909090909;
-  color: #2c374a;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 /* ----------------Testimonials section------------ */
 
 .testimonials-section {
