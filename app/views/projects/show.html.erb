@@ -1,1 +1,10 @@
 <h1>This is where a PROJECT will have it's show page, i.e. all the details of the project after it is created</h1>
+<br><br><br><br>
+
+<% if current_developer %>
+	<%= render 'developer_show', project: @project %>
+<% elsif current_client %>
+	<%= render 'client_show', project: @project %>
+<% else %>
+	<h1>404 error - access prohibited</h1>
+<% end %>

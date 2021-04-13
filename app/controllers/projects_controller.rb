@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   	# Please, NOBODY touch these functions, one will cause a huge mess in app flow and the other is for security (meant to prevent attackers from injecting whatever they want into the database)
 
   	def set_project
-  		@project = Project.find(params[:id])
+  		@project = current_developer.projects.find(params[:id])
   	end
 
   	def project_params
