@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :clients, controllers: { sessions: "clients/sessions" }
   devise_for :developers, controllers: { sessions: "developers/sessions" }
   resources :notes
-  resources :projects
+  resources :projects do
+    resources :project_members
+  end
   root 'pages#home'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

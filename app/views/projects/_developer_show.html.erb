@@ -1,4 +1,12 @@
 <h1>this is the developer project show template</h1>
 <br><br>
 
-<%= link_to 'Invite a Client', new_client_invitation_path %>
+<h5>Add a Client to your project!</h5>
+<%= form_for [@project, ProjectMember.new] do |new_member| %>
+	
+	<%= new_member.text_field :email %>
+	<%= hidden_field_tag 'developer_id', current_developer.id %>
+
+	<%= new_member.submit "Invite Client!" %>
+	
+<% end %>
