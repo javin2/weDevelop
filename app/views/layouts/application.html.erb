@@ -35,10 +35,16 @@
         <div class="collapse navbar-collapse flex-grow-1 text-right" id="nav-buttons">
             <ul class="navbar-nav ms-auto flex-nowrap">
               <% if current_developer %>
+                <li>
+                  <%= link_to "My Account", edit_developer_registration_path, class: 'nav-link m-2 menu-item' %>
+                </li>
                 <li class="nav-item" >
                   <%= link_to "Sign Out", destroy_developer_session_path, method: :delete, class: 'nav-link m-2 menu-item' %>
                 </li>
               <% elsif current_client %>
+                <li>
+                  <%= link_to "My Account", edit_client_registration_path, class: 'nav-link m-2 menu-item' %>
+                </li>
                 <li class="nav-item">
                   <%= link_to "Sign Out", destroy_client_session_path, method: :delete, class: 'nav-link m-2 menu-item' %>
                 </li>

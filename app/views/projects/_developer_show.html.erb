@@ -4,7 +4,11 @@
 <h5>Add a Client to your project!</h5>
 <%= form_for [@project, ProjectMember.new] do |new_member| %>
 	
-	<%= new_member.text_field :email %>
+	<%= new_member.text_field :email, placeholder: "Email" %>
+	<%= new_member.text_field :first_name, placeholder: "First Name" %>
+	<%= new_member.text_field :phone, placeholder: "Phone Number" %>
+	<%= new_member.text_field :company_name, placeholder: "Company Name" %>
+	<%= new_member.number_field :rate, placeholder: "Client's Rate" %>
 	<%= hidden_field_tag 'developer_id', current_developer.id %>
 
 	<%= new_member.submit "Invite Client!" %>

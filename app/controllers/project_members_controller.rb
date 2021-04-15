@@ -21,7 +21,7 @@ end
 private
 	
 	def project_member_params
-		params.require(:project_member).permit(:email)
+		params.require(:project_member).permit(:email, :phone, :company_name, :rate, :first_name)
 	end
 
 	def set_project

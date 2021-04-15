@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'clients/dashboard'
   get '/developers/dashboard' => "developers#dashboard", :as => :developer_root
   get '/clients/dashboard' => "clients#dashboard", :as => :client_root
-  devise_for :clients, controllers: { sessions: "clients/sessions" }
-  devise_for :developers, controllers: { sessions: "developers/sessions" }
+  devise_for :clients, controllers: { sessions: "clients/sessions", registrations: "clients/registrations" }
+  devise_for :developers, controllers: { sessions: "developers/sessions", registrations: "developers/registrations" }
   resources :notes
   resources :projects do
     resources :project_members
