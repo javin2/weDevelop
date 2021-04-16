@@ -1,5 +1,10 @@
-<h1>this is the developer project show template</h1>
+<h1 class="text-center"><%= @project.title %></h1>
 <br><br>
+<h3>Projected finish date: <%= @project.projected_completion %></h3><br><br>
+<h4>Description: <%= @project.description %></h4><br><br>
+<h4>Progress: <p><%= @project.percent_complete %></p></h4><br><br>
+<h4>Client owes: <p><%= @project.balance %></p></h4><br><br><br>
+
 
 <h5>Add a Client to your project!</h5>
 <%= form_for [@project, ProjectMember.new] do |new_member| %>

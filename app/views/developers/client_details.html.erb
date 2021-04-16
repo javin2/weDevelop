@@ -1,0 +1,15 @@
+<h1 class="text-center">Address Book</h1>
+
+<% @projects.each do |project| %>
+	<% project.project_members.each do |pm| %>
+	<div>
+		<h3>Name: <b><%= pm.client.first_name %> <%= pm.client.last_name %></b></h3>
+		<p>Company Name: <b><%= pm.client.company_name %></b></p>
+		<p>Phone: <b><%= pm.client.phone %></b></p>
+		<p>Email: <b><%= pm.client.email %></b></p>
+		<p>Rate: <b>$<%= pm.client.rate %>/hr</b></p>
+		<p>Address: <b><%= pm.client.street_address %></b></p>
+		<p><b><%= pm.client.city %></b>, <b><%= pm.client.state %></b>, <b><%= pm.client.zipcode %></b></p>
+	</div>
+	<% end %>
+<% end %>
