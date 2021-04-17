@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 
   	respond_to do |format|
   		if @project.save
-  			format.html {redirect_to developer_root_path, notice: "Your project was successfully created!"}
+  			format.html {redirect_to @project, notice: "Your project was successfully created!"}
   		else
   			format.html {render :new, status: :unprocessable_entity}
   		end

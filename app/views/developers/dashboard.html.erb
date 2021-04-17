@@ -1,25 +1,74 @@
-<h1 class="text-center">Developers Dashboard</h1><br><br><br>
+<div class="container-fluid dashboard">
+	<div class="text-center">
+		<h1>Dashboard</h1>
+	</div>
 
-<div>
-	<h3>Projects</h3><br><br><hr><br>
-	<% @projects.each do |project| %>
-		<div>
-		<h3><%= project.title %></h3>
-		<%= link_to 'Show Project', project %>
-		<br><br><br><br>
+
+		<div class="row text-center">
+			
+	
+
+			<div class="col-md-4 dashboard-section">
+				<div class="card h-100">
+					<div class="card-header">
+						<h2 class="card-title">Projects</h2>
+					</div>
+					<div class="card-body">
+						<% @projects.each do |project| %>
+							<div class="card text-center mb-3">
+								<h3 class="card-title"><%= project.title %></h3>
+							<% project.project_members.each do |pm| %>
+								<p>for: <b><%= pm.client.first_name %> <%=pm.client.last_name %> (<%=pm.client.company_name %>)</b></p>
+							<% end %>
+							<%= link_to 'Show Project', project %>
+							
+							</div>
+						<% end %>
+					</div>
+					<div class="card-footer bg-transparent">
+						<%= link_to "Create New Project", new_project_path, class: 'btn btn-success' %>
+					</div>
+				</div>
+			</div>
+
+			
+
+			<div class="col-md-4 dashboard-section">
+				<div class="card h-100">
+					<div class="card-header">
+						<h2 class="card-title">Clients</h2>
+					</div>
+					<div class="card-body">
+						<% @projects.each do |project| %>
+							<% project.project_members.each do |pm| %>
+							<div class="card text-center mb-5">
+								<h3 class="card-title"><%= pm.client.first_name %></h3>
+								<p>email: <%= pm.client.email %></p>
+								<h5><b><%= pm.client.company_name %></b></h5>
+							</div>
+							<% end %>
+						<% end %>
+					</div>
+					<div class="card-footer bg-transparent">
+						<%= link_to "View Client Directory", developers_client_details_path, class: 'btn btn-success' %>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="col-md-4 dashboard-section">
+				<div class="card h-100">
+					<div class="card-header">
+						<h2 class="card-title">Coming Soon</h2>
+					</div>
+					<div class="card-body">
+						
+					</div>
+				</div>
+			</div>
+
 		</div>
-	<% end %>
 
-	<%= link_to "Create New Project", new_project_path, class: 'btn btn-primary' %>
-</div>
 
-<div>
-	<h3>Clients</h3>
-	<% @projects.each do |project| %>
-		<% project.project_members.each do |pm| %>
-			<p><%= pm.client.email %></p>
-			<% end %>
-	<% end %>
-
-	<%= link_to "View Client Directory", developers_client_details_path, class: 'btn btn-primary' %>
 </div>

@@ -146,3 +146,29 @@ ul li {
   margin-bottom: 2rem;
 
 }
+
+
+/*========== Developer Dashboard ============*/
+
+.dashboard {
+  margin-top: 3rem;
+  height:85vh;
+  font-family: 'Arvo', serif;
+}
+
+.dashboard h1 {
+  margin-bottom: 5rem;
+}
+
+.dashboard-section {
+  min-height: 70vh;
+}
+
+.dashboard-section .card {
+  border-color: orange;
+}
+
+.dashboard-section .card-body {
+  height: 0px;
+  overflow-y: auto;
+}
