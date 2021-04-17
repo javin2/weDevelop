@@ -1,146 +1,216 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container profile-edit-page mt-5">
 
-<% if current_developer %>
+  <% if current_developer %>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row mb-5">
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+      <div class="offset-md-3 col-md-3 text-center">
+        <img class="rounded-circle" alt="100x100" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+      </div>
 
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-    </div>
+      <div class="col-md-6 text-left my-auto">
+        <h2><%= current_developer.first_name %> <%= current_developer.last_name %></h2>
+        <h4 class="text-muted"><i><%= current_developer.company_name %></i></h4>
+      </div>
 
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autofocus: true, autocomplete: "first_name" %>
-    </div>
+    </div> <!-- end of pic/name header -->
 
-    <div class="field">
-      <%= f.label :phone %><br />
-      <%= f.text_field :phone, autofocus: true, autocomplete: "first_name" %>
-    </div>
+    <div class="section-divider"><p><hr></p></div>
 
-    <div class="field">
-      <%= f.label :company_name %><br />
-      <%= f.text_field :company_name, autofocus: true, autocomplete: "first_name" %>
-    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+      <div class="row mb-4">
 
-    <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <div class="offset-md-3 col-md-3 field">
+          <b><%= f.label :first_name %><br /></b>
+          <%= f.text_field :first_name, autofocus: true%>
+        </div>
+
+        <div class="col-md-3 field">
+          <b><%= f.label :last_name %><br /></b>
+          <%= f.text_field :last_name, autofocus: true %>
+        </div>
+
+      </div>
+
+      <div class="row mb-4">
+
+        <div class="offset-md-3 col-md-3 field">
+          <b><%= f.label :email %><br /></b>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="col-md-3 field">
+          <b><%= f.label :phone %><br /></b>
+          <%= f.text_field :phone, autofocus: true %>
+        </div>
+
+      </div>
+
+      <div class="row mb-4">
+
+        <div class="offset-md-3 col-md-3  field">
+          <b><%= f.label :company_name %><br /></b>
+          <%= f.text_field :company_name, autofocus: true %>
+        </div>
+
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
+      <div class="row mb-4">
+
+        <div class="offset-md-3 col-md-3 field">
+          <b><%= f.label :password %> <i>(new password)</i><br /></b>
+          <%= f.password_field :password %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+
+        <div class="col-md-3 field">
+          <b><%= f.label :password_confirmation %><br /></b>
+          <%= f.password_field :password_confirmation %>
+        </div>
+
+      </div>
+
+      <div class="row mb-4">
+
+        <div class="offset-md-4 col-md-3 text-center field">
+          <b><%= f.label :current_password %> <i>(required)</i><br /></b>
+          <%= f.password_field :current_password %>
+        </div>
+
+      </div>
+
+      <div class="row">
+    
+        <div class="offset-md-4 col-md-3 text-center my-auto actions">
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+        </div>
+
+      </div>
+
+    <% end %> <!-- end of developer edit form -->
+
+  <% else %>
+
+    <div class="row mb-5">
+
+      <div class="offset-md-3 col-md-3 text-center">
+        <img class="rounded-circle" alt="100x100" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+      </div>
+
+      <div class="col-md-6 text-left my-auto">
+        <h2><%= current_client.first_name %> <%= current_client.last_name %></h2>
+        <h4 class="text-muted"><i><%= current_client.company_name %></i></h4>
+      </div>
+
+    </div> <!-- end of pic/name header -->
+
+    <div class="section-divider"><p><hr></p></div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="row mb-5">
+
+      <div class="offset-md-2 col-md-3 field">
+        <b><%= f.label :email %><br /></b>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="col-md-3 field">
+        <b><%= f.label :first_name %><br /></b>
+        <%= f.text_field :first_name, autofocus: true %>
+      </div>
+
+      <div class="col-md-3 field">
+        <b><%= f.label :last_name %><br /></b>
+        <%= f.text_field :last_name, autofocus: true %>
+      </div>
+
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="row mb-5">
+
+      <div class="offset-md-2 col-md-3 field">
+        <b><%= f.label :company_name %><br /></b>
+        <%= f.text_field :company_name, autofocus: true %>
+      </div>
+
+      <div class="col-md-3 field">
+        <b><%= f.label :phone %><br /></b>
+        <%= f.text_field :phone, autofocus: true %>
+      </div>
+
+      <div class="col-md-3 field">
+        <b><%= f.label :street_address %><br /></b>
+        <%= f.text_field :street_address, autofocus: true %>
+      </div>
+
     </div>
 
-    <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
-    <br>
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
+    <div class="row mb-5">
 
-  <% end %> <!-- end of developer edit form -->
+      <div class="offset-md-2 col-md-3 field">
+        <b><%= f.label :city %><br /></b>
+        <%= f.text_field :city, autofocus: true %>
+      </div>
 
-<% else %>
+      <div class="col-md-3 field">
+        <b><%= f.label :state %><br /></b>
+        <%= f.text_field :state, autofocus: true %>
+      </div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="col-md-3 field">
+        <b><%= f.label :zipcode %><br /></b>
+        <%= f.text_field :zipcode, autofocus: true %>
+      </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :company_name %><br />
-      <%= f.text_field :company_name, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :phone %><br />
-      <%= f.text_field :phone, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :street_address %><br />
-      <%= f.text_field :street_address, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :city %><br />
-      <%= f.text_field :city, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :state %><br />
-      <%= f.text_field :state, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :zipcode %><br />
-      <%= f.text_field :zipcode, autofocus: true, autocomplete: "first_name" %>
-    </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
+
+    <div class="row mb-5">
+
+      <div class="offset-md-2 col-md-3 field">
+        <b><%= f.label :password %> <i>(new password)</i><br /></b>
+        <%= f.password_field :password %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="col-md-3 field">
+        <b><%= f.label :password_confirmation %><br /></b>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+      <div class="col-md-3 field">
+        <b><%= f.label :current_password %> <i>*required*</i><br /></b>
+        <%= f.password_field :current_password %>
+      </div>
+      
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="row">
+
+      <div class="offset-md-5 col-md-2 text-center actions">
+        <%= f.submit "Update", class: 'btn btn-primary' %>
+      </div>
+
     </div>
+    <% end %>  <!-- end of client edit form -->
 
-    <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
-    <br>
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
-  <% end %>  <!-- end of client edit form -->
+  <% end %> <!-- end of if/else statement -->
 
-<% end %> <!-- end of if/else statement -->
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

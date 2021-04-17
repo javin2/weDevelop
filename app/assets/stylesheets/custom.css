@@ -172,3 +172,21 @@ ul li {
   height: 0px;
   overflow-y: auto;
 }
+
+
+/*========== Edit Profile ============*/
+
+.profile-edit-page img {
+  height:200px;
+  width:200px;
+}
+
+.profile-edit-page hr {
+  margin:auto;
+  width:50%;
+}
+
+.section-divider {
+  margin-top:5rem;
+  margin-bottom:5rem;
+}
