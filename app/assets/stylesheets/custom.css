@@ -176,6 +176,10 @@ ul li {
 
 /*========== Edit Profile ============*/
 
+.profile-edit-page {
+  font-family: 'Arvo', serif;
+}
+
 .profile-edit-page img {
   height:200px;
   width:200px;

@@ -1,18 +1,37 @@
-<div class="container">
+<div class="container client-directory mt-5">
 
-	<h1 class="text-center">Address Book</h1>
+	<h1 class="text-center mb-5 ">Client Directory</h1>
 
-	<% @projects.each do |project| %>
-		<% project.project_members.each do |pm| %>
-		<div>
-			<h3>Name: <b><%= pm.client.first_name %> <%= pm.client.last_name %></b></h3>
-			<p>Company Name: <b><%= pm.client.company_name %></b></p>
-			<p>Phone: <b><%= pm.client.phone %></b></p>
-			<p>Email: <b><%= pm.client.email %></b></p>
-			<p>Rate: <b>$<%= pm.client.rate %>/hr</b></p>
-			<p>Address: <b><%= pm.client.street_address %></b></p>
-			<p><b><%= pm.client.city %></b>, <b><%= pm.client.state %></b>, <b><%= pm.client.zipcode %></b></p>
+		<div class="row">
+
+			<% @projects.each do |project| %>
+
+				<% project.project_members.each do |pm| %>
+					<div class="col-md-4 mb-4">
+
+						<div class="card">
+							<div class="card-header"><h4 class="card-title"><b><%= pm.client.company_name %></b></h4></div>
+
+								<div class="card-body">
+
+									<p>Contact: <b><%= pm.client.first_name %> <%= pm.client.last_name %></b></p>
+									<p>Phone: <b><%= pm.client.phone %></b></p>
+									<p>Email: <b><%= pm.client.email %></b></p>
+									<p>Rate: <b>$<%= pm.client.rate %>/hr</b></p>
+									<p>Address: <b><%= pm.client.street_address %></b></p>
+									<p><b><%= pm.client.city %></b>, <b><%= pm.client.state %></b>, <b><%= pm.client.zipcode %></b></p>
+
+								</div>
+
+
+						</div>
+
+					</div>
+				
+				<% end %>
+
+			<% end %>
+
 		</div>
-		<% end %>
-	<% end %>
+
 </div>
