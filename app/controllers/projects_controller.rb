@@ -2,6 +2,9 @@ class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def show
+    if current_developer
+      @project_members = @project.project_members
+    end
   end
 
   def new

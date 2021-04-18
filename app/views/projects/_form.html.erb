@@ -1,5 +1,4 @@
-<div class="container">
-	
+<div class="row" id="new-project-form">
 
 	<%= form_with(model: project) do |form| %>
 		<% if project.errors.any? %>
@@ -14,6 +13,7 @@
 		    </div>
 		<% end %>
 
+		
 		<div class="field">
 			<%= form.label :title %>
 			<%= form.text_field :title %>
@@ -44,10 +44,5 @@
 		</div>
 
 	<% end %>
-
-
-
-
-
 
 </div>

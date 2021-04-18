@@ -1,21 +1,65 @@
-<h1 class="text-center"><%= @project.title %></h1>
-<br><br>
-<h3>Projected finish date: <%= @project.projected_completion %></h3><br><br>
-<h4>Description: <%= @project.description %></h4><br><br>
-<h4>Progress: <p><%= @project.percent_complete %></p></h4><br><br>
-<h4>Client owes: <p><%= @project.balance %></p></h4><br><br><br>
+<div class="show-page-divider"><p></p></div>
+
+<div class="container-fluid h-100" id="dev-show-page">
+
+	<div class="row h-100">
+
+		<div class="offset-md-1 col-md-3 text-center" id="left-show-page-column">
+			<h2 class="text-center"><%=@project.title %><hr></h2>
+
+			<h5>Client(s):</h5>
+			<% @project_members.each do |pm| %>
+			<p><%= pm.client.first_name %> at <%= pm.client.company_name %></p>
+			<% end %>
+			<h5>Projected Completion Date:</h5>
+			<p><%= @project.projected_completion.strftime("%m/%d/%Y") %></p>
+			<br>
+			<h5>Purpose/Goal:</h5>
+			<p><%= @project.description %></p>
+			<h5>Remaining Balance:</h5>
+			<h3 style="color:orange;"><b>$<%= @project.balance %></b></h3 style="color:orange;">
+		</div>
+
+		<div class="offset-md-1 col-md-6 h-100">
+			<div class="row" id="show-page-right-half">
+				<div class="col-md-12 show-page-right-box-small">
+					<div class="row h-100">
+						<div class="col-md-4 h-100 d-flex justify-content-center" style="border-right:1px solid orange;">
+							<h4 style="padding-top:3rem;"><%= @project.percent_complete %>% finished</h4>
+						</div>					
+						<div class="col-md-8 text-center">
+							<h5>Add a Client to your project!</h5>
+		
+							<%= form_for [@project, ProjectMember.new] do |new_member| %>
+								
+								<%= new_member.text_field :email, placeholder: "Email" %>
+								<%= new_member.text_field :first_name, placeholder: "First Name" %>
+								<%= new_member.text_field :phone, placeholder: "Phone Number" %>
+								<%= new_member.text_field :company_name, placeholder: "Company Name" %>
+								<%= new_member.number_field :rate, placeholder: "Client's Rate" %>
+								<%= hidden_field_tag 'developer_id', current_developer.id %>
+								<%= new_member.submit "Invite Client!", class: 'btn btn-primary' %>
+								
+							<% end %>
+
+						</div>
+
+						<div class="col-md-12" id="updates-section">
+							<h1 class="text-center">Updates</h1>
+						</div>
+
+					</div>
+					
+				</div>				
+					
+
+			</div>
+		</div>
 
 
-<h5>Add a Client to your project!</h5>
-<%= form_for [@project, ProjectMember.new] do |new_member| %>
-	
-	<%= new_member.text_field :email, placeholder: "Email" %>
-	<%= new_member.text_field :first_name, placeholder: "First Name" %>
-	<%= new_member.text_field :phone, placeholder: "Phone Number" %>
-	<%= new_member.text_field :company_name, placeholder: "Company Name" %>
-	<%= new_member.number_field :rate, placeholder: "Client's Rate" %>
-	<%= hidden_field_tag 'developer_id', current_developer.id %>
 
-	<%= new_member.submit "Invite Client!" %>
-	
-<% end %>
+	</div> <!-- end of row -->
+
+</div>
+
+
