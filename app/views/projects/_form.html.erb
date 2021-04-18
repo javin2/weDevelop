@@ -1,4 +1,4 @@
-<div class="row" id="new-project-form">
+<div class="row bg-light" id="new-project-form">
 
 	<%= form_with(model: project) do |form| %>
 		<% if project.errors.any? %>
@@ -13,34 +13,39 @@
 		    </div>
 		<% end %>
 
-		
+	<div class="col-md-12">
+
 		<div class="field">
-			<%= form.label :title %>
-			<%= form.text_field :title %>
+			<h3><%= form.label :title, "Come up with a great title!" %></h3><br>
+			<p><%= form.text_field :title, size: "50" %></p>
+		</div>
+
+	</div>
+
+	<div class="col-md-12">
+		<div class="field">
+			<h3><%= form.label :description, "Tell us a bit about the project (purpose, functionality, etc)" %></h3><br>
+			<p><%= form.text_area :description, cols: "50", rows: "5" %></p>
+		</div>
+	</div>
+
+		<div class="field">
+			<h3><%= form.label :projected_completion, "When do you expect to have this project completed by?" %></h3><br>
+			<p><%= form.date_select :projected_completion %></p>
 		</div>
 
 		<div class="field">
-			<%= form.label :description %>
-			<%= form.text_area :description %>
+			<h3><%= form.label :percent_complete, "How much of the project is already completed? (0-100, a brand new project would be '0')" %></h3><br>
+			<p><%= form.number_field :percent_complete %></p>
 		</div>
 
 		<div class="field">
-			<%= form.label :projected_completion %>
-			<%= form.date_select :projected_completion %>
-		</div>
-
-		<div class="field">
-			<%= form.label :percent_complete %>
-			<%= form.number_field :percent_complete %>
-		</div>
-
-		<div class="field">
-			<%= form.label :balance %>
-			<%= form.number_field :balance %>
+			<h3><%= form.label :balance, "Enter the quote you gave your client for this project:" %></h3><br>
+			<p><%= form.number_field :balance %></p>
 		</div>
 
 		<div class="actions">
-			<%= form.submit %>
+			<p><%= form.submit class: 'btn btn-success' %> or <%= link_to 'Go Back', developer_root_path, class: 'btn btn-danger' %> </p>
 		</div>
 
 	<% end %>

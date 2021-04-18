@@ -9,7 +9,9 @@
 
 			<h5>Client(s):</h5>
 			<% @project_members.each do |pm| %>
-			<p><%= pm.client.first_name %> at <%= pm.client.company_name %></p>
+			<p><%= pm.client.first_name %> at <%= pm.client.company_name %><br>
+				Contact: <%= pm.client.email %></p>
+
 			<% end %>
 			<h5>Projected Completion Date:</h5>
 			<p><%= @project.projected_completion.strftime("%m/%d/%Y") %></p>

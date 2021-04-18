@@ -263,5 +263,10 @@ ul li {
 /*======== New Project Form ===========*/
 
 #new-project-form {
-  margin-top:8rem;
+  margin-top:5rem;
+  border: 2px solid orange;
+  border-radius:10px;
+  padding:2rem;
+  font-family: 'Arvo', serif;
+  /*background-color:grey;*/
 }
