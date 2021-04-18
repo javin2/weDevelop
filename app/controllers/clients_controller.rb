@@ -1,5 +1,9 @@
 class ClientsController < ApplicationController
+	before_action :authenticate_client!
+
+
   def dashboard
+  	@projects = current_client.project_members
   end
 
   def show

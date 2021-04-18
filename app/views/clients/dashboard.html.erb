@@ -14,7 +14,20 @@
 						<h2 class="card-title">Projects</h2>
 					</div>
 					<div class="card-body">
-						<h1>You don't have any projects currently</h1>
+						<% if @projects.blank? %>
+							<h2>You don't currently have any open projects!</h2>
+						<% else %>
+							<% @projects.each do |project| %>
+								<div class="card text-center mb-3">
+									<h3 class="card-title"><%= project.project.title %></h3>
+								
+									<p>by: <b><%= project.developer.first_name %> <%=project.developer.last_name %> (<%=project.developer.company_name %>)</b></p>
+								
+								<%= link_to 'Show Project', project.project %>
+								
+								</div>
+							<% end %>
+						<% end %>
 					</div>
 					<div class="card-footer bg-transparent">
 						

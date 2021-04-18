@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
-	before_action :set_project, only: [:show, :edit, :update, :destroy]
+	before_action :set_project, only: [:edit, :update, :destroy]
 
   def show
     if current_developer
+      @project = current_developer.projects.find(params[:id])
       @project_members = @project.project_members
     end
   end
