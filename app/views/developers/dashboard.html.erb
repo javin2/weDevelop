@@ -41,7 +41,7 @@
 					<div class="card-body">
 						<% @projects.each do |project| %>
 							<% project.project_members.each do |pm| %>
-							<div class="card text-center mb-5">
+							<div class="card text-center mb-3">
 								<h3 class="card-title"><%= pm.client.first_name %></h3>
 								<p>email: <%= pm.client.email %></p>
 								<h5><b><%= pm.client.company_name %></b></h5>
