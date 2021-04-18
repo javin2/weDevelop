@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 
 
   def dashboard
-  	@projects = current_client.project_members
+  	@project_members = current_client.project_members
   end
 
   def show

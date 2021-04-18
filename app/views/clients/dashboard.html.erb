@@ -14,16 +14,16 @@
 						<h2 class="card-title">Projects</h2>
 					</div>
 					<div class="card-body">
-						<% if @projects.blank? %>
+						<% if @project_members.blank? %>
 							<h2>You don't currently have any open projects!</h2>
 						<% else %>
-							<% @projects.each do |project| %>
+							<% @project_members.each do |pm| %>
 								<div class="card text-center mb-3">
-									<h3 class="card-title"><%= project.project.title %></h3>
+									<h3 class="card-title"><%= pm.project.title %></h3>
 								
-									<p>by: <b><%= project.developer.first_name %> <%=project.developer.last_name %> (<%=project.developer.company_name %>)</b></p>
+									<p>by: <b><%= pm.developer.first_name %> <%=pm.developer.last_name %> (<%=pm.developer.company_name %>)</b></p>
 								
-								<%= link_to 'Show Project', project.project %>
+								<%= link_to 'Show Project', pm.project %>
 								
 								</div>
 							<% end %>
@@ -43,7 +43,19 @@
 						<h2 class="card-title">Your Developers</h2>
 					</div>
 					<div class="card-body">
-						<h1>You aren't currently connected with any developers</h1>
+						<% if @project_members.blank? %>
+							<h1>You aren't currently connected with any developers</h1>
+						<% else %>
+							<% @project_members.each do |pm| %>
+								
+								<div class="card text-center mb-3">
+									<h3 class="card-title"><%= pm.developer.first_name %></h3>
+									<p>email: <%= pm.developer.email %></p>
+									<h5><b><%= pm.developer.company_name %></b></h5>
+								</div>
+								
+							<% end %>
+						<% end %>
 					</div>
 					<div class="card-footer bg-transparent">
 						

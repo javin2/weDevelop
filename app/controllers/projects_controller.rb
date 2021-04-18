@@ -5,6 +5,11 @@ class ProjectsController < ApplicationController
     if current_developer
       @project = current_developer.projects.find(params[:id])
       @project_members = @project.project_members
+    elsif current_client
+      @project = Project.find(params[:id])
+      @project_members = @project.project_members
+    else
+      404
     end
   end
 
