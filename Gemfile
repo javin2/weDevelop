@@ -18,6 +18,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'devise_invitable', git: 'https://github.com/scambra/devise_invitable'
+gem 'carrierwave', '~> 2.0'
+gem 'fog-aws'
+gem 'mini_magick'
+gem 'figaro'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

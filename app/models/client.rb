@@ -6,4 +6,6 @@ class Client < ApplicationRecord
 	has_many :project_members
 	has_many :developers, :through => :project_members
 	has_many :projects, :through => :project_members
+
+	mount_uploader :profile_photo, ProfilePhotoUploader
 end

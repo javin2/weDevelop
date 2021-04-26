@@ -9,4 +9,7 @@ class Developer < ApplicationRecord
 	has_many :project_members
 	has_many :clients, :through => :project_members
 	has_many :projects
+
+	mount_uploader :profile_photo, ProfilePhotoUploader
+	
 end

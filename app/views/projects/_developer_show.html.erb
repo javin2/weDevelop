@@ -34,11 +34,11 @@
 		
 							<%= form_for [@project, ProjectMember.new] do |new_member| %>
 								
-								<%= new_member.text_field :email, placeholder: "Email" %>
-								<%= new_member.text_field :first_name, placeholder: "First Name" %>
-								<%= new_member.text_field :phone, placeholder: "Phone Number" %>
-								<%= new_member.text_field :company_name, placeholder: "Company Name" %>
-								<%= new_member.number_field :rate, placeholder: "Client's Rate" %>
+								<%= new_member.text_field :email, placeholder: "Email", required: true %>
+								<%= new_member.text_field :first_name, placeholder: "First Name", required: true %>
+								<%= new_member.text_field :phone, placeholder: "Phone Number", required: true %>
+								<%= new_member.text_field :company_name, placeholder: "Company Name", required: true %>
+								<%= new_member.number_field :rate, placeholder: "Client's Rate", required: true %>
 								<%= hidden_field_tag 'developer_id', current_developer.id %>
 								<%= new_member.submit "Invite Client!", class: 'btn btn-primary' %>
 								

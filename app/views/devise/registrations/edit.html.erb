@@ -5,7 +5,8 @@
     <div class="row mb-5">
 
       <div class="offset-md-3 col-md-3 text-center">
-        <img class="rounded-circle" alt="100x100" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+        <!-- <img class="rounded-circle" alt="100x100" src="" data-holder-rendered="true"> -->
+        <%= image_tag(current_developer.profile_photo.url, class: 'rounded-circle') %>
       </div>
 
       <div class="col-md-6 text-left my-auto">
@@ -50,9 +51,14 @@
 
       <div class="row mb-4">
 
-        <div class="offset-md-3 col-md-3  field">
+        <div class="offset-md-3 col-md-3 field">
           <b><%= f.label :company_name %><br /></b>
           <%= f.text_field :company_name, autofocus: true %>
+        </div>
+
+        <div class="col-md-3 field">
+          <b><%= f.label :profile_photo %><br /></b>
+          <%= f.file_field :profile_photo, autofocus: true %>
         </div>
 
       </div>
@@ -102,7 +108,11 @@
     <div class="row mb-5">
 
       <div class="offset-md-3 col-md-3 text-center">
-        <img class="rounded-circle" alt="100x100" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+        <% if current_client.profile_photo.url == nil %>
+          <img class="rounded-circle" alt="100x100" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+        <% else %>
+          <%= image_tag(current_client.profile_photo.url, class: 'rounded-circle') %>
+        <% end %>
       </div>
 
       <div class="col-md-6 text-left my-auto">
@@ -197,6 +207,11 @@
       <div class="col-md-3 field">
         <b><%= f.label :current_password %> <i>*required*</i><br /></b>
         <%= f.password_field :current_password %>
+      </div>
+
+      <div class="col-md-3 field">
+        <b><%= f.label :profile_photo %> <br /></b>
+        <%= f.file_field :profile_photo %>
       </div>
       
     </div>
