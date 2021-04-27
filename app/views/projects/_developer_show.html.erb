@@ -56,7 +56,7 @@
 								<div class="col-md-4">
 
 							<!-- Button trigger modal -->
-									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateFormModal">
 									  Add a New Update
 									</button>
 								</div>
@@ -80,30 +80,33 @@
 	</div> <!-- end of row -->
 
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="updateFormModal" tabindex="-1" aria-labelledby="updateFormModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <h5 class="modal-title" id="exampleModalLabel">Add an Update!</h5>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
-	      <div class="modal-body">
-	        <%= form_for [@project, ProjectMember.new] do |new_member| %>
-								
-								<%= new_member.text_field :email, placeholder: "Email", required: true %>
-								<%= new_member.text_field :first_name, placeholder: "First Name", required: true %>
-								<%= new_member.text_field :phone, placeholder: "Phone Number", required: true %>
-								<%= new_member.text_field :company_name, placeholder: "Company Name", required: true %>
-								<%= new_member.number_field :rate, placeholder: "Client's Rate", required: true %>
-								<%= hidden_field_tag 'developer_id', current_developer.id %>
-								
+	      <div class="modal-body justify-content-center text-center">
+
+	      	
+	        	<%= form_for [@project, @project.notes.build] do |f| %>
+
+	        		<div class="form-group">								
+					<%= f.text_field :title, placeholder: "Enter a Title", size: "30", required: true %>
+					</div>
+					<br>
+					<div class="form-group">
+					<%= f.text_area :body, placeholder: "Enter your update here", cols: "30", rows: "10", required: true %>
+					</div>
+					
 
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-	        <%= new_member.submit "Invite Client!", class: 'btn btn-primary' %>
+	        <%= f.submit "Submit Update", class: 'btn btn-primary' %>
 								
-							<% end %>
+			<% end %>
 	      </div>
 	    </div>
 	  </div>

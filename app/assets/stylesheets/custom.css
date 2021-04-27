@@ -262,6 +262,10 @@ ul li {
   margin-top: 1rem;
 }
 
+#updateFormModal h5 {
+  font-weight: bold;
+}
+
 
 /*======== New Project Form ===========*/
 
