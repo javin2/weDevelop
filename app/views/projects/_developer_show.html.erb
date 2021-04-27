@@ -46,9 +46,26 @@
 
 						</div>
 
-						<div class="col-md-12" id="updates-section">
-							<h1 class="text-center">Updates</h1>
-						</div>
+						<div class="col-md-12 justify-content-center" id="updates-section">
+
+							<div class="row text-center">
+								<div class="col-md-6">
+									<h3>Updates</h3>
+								</div>
+
+								<div class="col-md-4">
+
+							<!-- Button trigger modal -->
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+									  Add a New Update
+									</button>
+								</div>
+
+								
+							</div>
+							<hr style="width:75%;margin-left:10%;">
+
+						</div> <!-- end of updates section -->
 
 					</div>
 					
@@ -61,6 +78,36 @@
 
 
 	</div> <!-- end of row -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        <%= form_for [@project, ProjectMember.new] do |new_member| %>
+								
+								<%= new_member.text_field :email, placeholder: "Email", required: true %>
+								<%= new_member.text_field :first_name, placeholder: "First Name", required: true %>
+								<%= new_member.text_field :phone, placeholder: "Phone Number", required: true %>
+								<%= new_member.text_field :company_name, placeholder: "Company Name", required: true %>
+								<%= new_member.number_field :rate, placeholder: "Client's Rate", required: true %>
+								<%= hidden_field_tag 'developer_id', current_developer.id %>
+								
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <%= new_member.submit "Invite Client!", class: 'btn btn-primary' %>
+								
+							<% end %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 </div>
 
