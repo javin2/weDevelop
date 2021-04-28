@@ -2,6 +2,11 @@
   height: 100%;
 }
 */
+
+body .btn {
+  background-color:#56EDC8;
+  color:#2A4A46;
+}
 /*========= Navbar ==========*/
 
 @media only screen and (min-device-width : 768px) {
