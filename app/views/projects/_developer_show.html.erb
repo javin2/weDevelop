@@ -46,7 +46,7 @@
 
 						</div>
 
-						<div class="col-md-12 justify-content-center" id="updates-section">
+						<div class="col-md-12 justify-content-center updates-section" id="">
 
 							<div class="row text-center">
 								<div class="col-md-6">
@@ -63,7 +63,33 @@
 
 								
 							</div>
-							<hr style="width:75%;margin-left:10%;">
+							<hr style="width:75%;margin-left:10%;margin-bottom:2rem;">
+							<div class="row" id="updates-table">
+
+								<table class="table">
+								  <thead>
+								    <tr class="d-flex">
+								      <th class="col-1" scope="col"></th>
+								      <th class="col-2" scope="col">Date</th>
+								      <th class="col-7" scope="col">Header</th>
+								      <th class="col-2" scope="col"></th>
+
+								    </tr>
+								  </thead>
+								  <tbody>
+								  	<% @notes.each do |note| %>
+									    <tr class="d-flex">
+									      <th class="col-1" scope="row"></th>
+									      <th class="col-2"><%= note.created_at.strftime("%m/%d/%Y") %></td>
+									      <td class="col-7"><%= truncate(note.body, :length => 50) %></td>
+									      <td class="col-2"><%= link_to "View Update", project_note_path(note), remote: true %></td>
+									    </tr>
+									<% end %>
+								    
+								  </tbody>
+								</table>
+								
+							</div>
 
 						</div> <!-- end of updates section -->
 
@@ -79,12 +105,12 @@
 
 	</div> <!-- end of row -->
 
-	<!-- Modal -->
+	<!-- New Update Form Modal -->
 	<div class="modal fade" id="updateFormModal" tabindex="-1" aria-labelledby="updateFormModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Add an Update!</h5>
+	        <h5 class="modal-title" id="updateFormModalLabel">Add an Update!</h5>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
 	      <div class="modal-body justify-content-center text-center">
@@ -103,7 +129,7 @@
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 	        <%= f.submit "Submit Update", class: 'btn btn-primary' %>
 								
 			<% end %>
@@ -112,6 +138,8 @@
 	  </div>
 	</div>
 
+	<!-- View Update Modal -->
+	<div class="modal fade" id="updateViewModal" tabindex="-1" aria-labelledby="updateViewModalLabel" aria-hidden="true"></div>
 </div>
 
 

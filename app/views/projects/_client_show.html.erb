@@ -33,8 +33,37 @@
 							<h3 style="color:orange;"><b>$<%= @project.balance %></b></h3>
 						</div>
 
-						<div class="col-md-12" id="updates-section">
-							<h1 class="text-center">Updates</h1>
+						<div class="col-md-12 updates-section" id="">
+							<div class="row">
+								<h1 class="text-center">Updates</h1>
+							</div>
+							<hr style="width:75%;margin-left:10%;margin-bottom:2rem;">
+							<div class="row" id="updates-table">
+
+								<table class="table">
+								  <thead>
+								    <tr class="d-flex">
+								      <th class="col-1" scope="col"></th>
+								      <th class="col-2" scope="col">Date</th>
+								      <th class="col-7" scope="col">Header</th>
+								      <th class="col-2" scope="col"></th>
+
+								    </tr>
+								  </thead>
+								  <tbody>
+								  	<% @notes.each do |note| %>
+									    <tr class="d-flex">
+									      <th class="col-1" scope="row"></th>
+									      <th class="col-2"><%= note.created_at.strftime("%m/%d/%Y") %></td>
+									      <td class="col-7"><%= truncate(note.body, :length => 50) %></td>
+									      <td class="col-2"><%= link_to "View Update", class: "btn btn-primary" %></td>
+									    </tr>
+									<% end %>
+								    
+								  </tbody>
+								</table>
+								
+							</div>
 						</div>
 
 					</div>

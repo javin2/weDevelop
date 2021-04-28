@@ -246,26 +246,30 @@ ul li {
   border-radius:10px;
 }
 
-#updates-section {
+.updates-section {
   margin-top:2rem;
   height: 64vh;
   border: 1px solid #56EDC8;
   border-radius:10px;
 }
 
-#updates-section h3 {
+.updates-section h1, .updates-section h3 {
   font-weight:bold;
-  text-decoration:underline;
+  
 }
 
-#updates-section .row {
-  margin-top: 1rem;
+.updates-section .row {
+  margin-top: 1.5rem;
 }
 
-#updateFormModal h5 {
+.updateFormModal h5 {
   font-weight: bold;
 }
 
+
+.updates-table {
+  overflow-y: auto;
+}
 
 /*======== New Project Form ===========*/
 
