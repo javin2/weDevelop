@@ -2,6 +2,11 @@
   height: 100%;
 }
 */
+
+body .btn {
+  background-color:#56EDC8;
+  color:#2A4A46;
+}
 /*========= Navbar ==========*/
 
 @media only screen and (min-device-width : 768px) {
@@ -246,19 +251,31 @@ ul li {
   border-radius:10px;
 }
 
-#updates-section {
+.updates-section {
   margin-top:2rem;
   height: 64vh;
   border: 1px solid #56EDC8;
   border-radius:10px;
+  overflow-y: auto;
 }
 
-#updates-section h1 {
+.updates-section h1, .updates-section h3 {
   font-weight:bold;
-  text-decoration:underline;
+  
+}
+
+.updates-section .row {
+  margin-top: 1.5rem;
+}
+
+.updateFormModal h5 {
+  font-weight: bold;
 }
 
 
+.updates-table {
+  overflow-y: auto;
+}
 
 /*======== New Project Form ===========*/
 

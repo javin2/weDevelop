@@ -5,11 +5,19 @@ class ProjectsController < ApplicationController
     if current_developer
       @project = current_developer.projects.find(params[:id])
       @project_members = @project.project_members
+      @notes = @project.notes.order(created_at: :desc)
     elsif current_client
       @project = Project.find(params[:id])
       @project_members = @project.project_members
+      @notes = @project.notes.order(created_at: :desc)
     else
       404
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+
     end
   end
 

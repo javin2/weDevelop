@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   get '/developers/client_details'
   devise_for :clients, controllers: { sessions: "clients/sessions", registrations: "clients/registrations" }
   devise_for :developers, controllers: { sessions: "developers/sessions", registrations: "developers/registrations" }
-  resources :notes
+  
   resources :projects do
     resources :project_members
+    resources :notes
   end
   root 'pages#home'
   
