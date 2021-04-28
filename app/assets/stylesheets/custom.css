@@ -251,6 +251,7 @@ ul li {
   height: 64vh;
   border: 1px solid #56EDC8;
   border-radius:10px;
+  overflow-y: auto;
 }
 
 .updates-section h1, .updates-section h3 {

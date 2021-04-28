@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     elsif current_client
       @project = Project.find(params[:id])
       @project_members = @project.project_members
-      @notes = @project.notes
+      @notes = @project.notes.order(created_at: :desc)
     else
       404
     end

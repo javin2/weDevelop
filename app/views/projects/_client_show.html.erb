@@ -40,7 +40,11 @@
 							<hr style="width:75%;margin-left:10%;margin-bottom:2rem;">
 							<div class="row" id="updates-table">
 
-								<table class="table">
+								<% if @notes.empty? %>
+									<h3 class="text-center" style="color:orange;">Updates Will Be Listed Here As They Are Published</h3>
+								<% else %>
+
+								<table class="table" style="border-collapse:collapse;">
 								  <thead>
 								    <tr class="d-flex">
 								      <th class="col-1" scope="col"></th>
@@ -52,16 +56,27 @@
 								  </thead>
 								  <tbody>
 								  	<% @notes.each do |note| %>
+
 									    <tr class="d-flex">
-									      <th class="col-1" scope="row"></th>
-									      <th class="col-2"><%= note.created_at.strftime("%m/%d/%Y") %></td>
-									      <td class="col-7"><%= truncate(note.body, :length => 50) %></td>
-									      <td class="col-2"><%= link_to "View Update", class: "btn btn-primary" %></td>
+									      <td class="col-1" scope="row"></td>
+									      <td class="col-2"><%= note.created_at.strftime("%m/%d/%Y") %></td>
+									      <td class="col-7"><%= truncate(note.title, :length => 50) %></td>
+									      <td class="col-2"><button type="button" class="accordian-toggle btn btn-primary" data-bs-toggle="collapse" data-bs-target="#update<%= note.id %>">View Update</button></td>
 									    </tr>
+
+									    <tr>
+									    	<td colspan="6" class="hiddenRow">
+									    		<div id="update<%= note.id %>" class="accordion-body collapse"><%= note.body %></div>
+									    	</td>
+									    </tr>
+									    
+
 									<% end %>
 								    
 								  </tbody>
 								</table>
+
+								<% end %>
 								
 							</div>
 						</div>
