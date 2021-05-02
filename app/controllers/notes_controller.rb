@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  
+  before_action :authenticate_developer!, only: [:create, :new]
 
   def show
   	
