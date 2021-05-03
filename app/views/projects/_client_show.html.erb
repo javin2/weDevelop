@@ -34,7 +34,10 @@
 						<div class="col-md-8 text-center" style="margin:auto;">
 							<h5>Remaining Balance:</h5>
 							<h3><b>$<%= @project.balance %></b></h3>
-							<p><a href="#">Make a Payment</a></p>
+
+							<!-- Button ready for payment implementation -->
+
+							<!-- <p><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#paymentModal">Make a Payment</button></p> -->
 						</div>
 
 						<div class="col-md-12 updates-section" id="">
@@ -98,5 +101,38 @@
 
 
 	</div> <!-- end of row -->
+
+	<!-- MODAL FOR PAYMENT IMPLEMENTATION -->
+
+	<!-- <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="paymentModalLabel">Make A Payment!</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body justify-content-center text-center">
+
+	      	
+	        	<%= form_with(model: project) do |f| %>
+
+	        		<div class="form-group">								
+					<%= f.number_field :payment_amount %>
+					</div>
+					<br>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	        		<button type="button" class="btn btn-primary">Submit</button>
+					
+					
+
+	      </div>
+	      <div class="modal-footer"> -->
+	        
+								
+			<% end %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 </div>

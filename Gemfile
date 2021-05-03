@@ -24,6 +24,7 @@ gem 'mini_magick'
 gem 'figaro'
 gem 'stripe'
 gem 'toastr-rails'
+gem 'pry-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
