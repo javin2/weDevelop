@@ -208,7 +208,7 @@ ul li {
 }
 
 .section-divider {
-  margin-top:5rem;
+  margin-top:2.5rem;
   margin-bottom:5rem;
 }
 
@@ -286,9 +286,21 @@ ul li {
   overflow-y: auto;
 }
 
-.updates-section h1, .updates-section h3 {
+.updates-section h1, .updates-section h2 {
   font-weight:bold;
   
+}
+
+.updates-section .hiddenRow{
+  padding:0;
+  }
+
+.updates-section .accordion-body {
+  padding:0;
+}
+
+.updates-section .accordion-body p {
+  padding:20px;
 }
 
 .updates-section .row {
@@ -304,6 +316,14 @@ ul li {
   overflow-y: auto;
 }
 
+.updates-section hr {
+  visibility:hidden;
+}
+
+#dev-show-page h3 {
+  color:orange;
+}
+
 /*======== New Project Form ===========*/
 
 #new-project-form {
@@ -313,4 +333,11 @@ ul li {
   padding:2rem;
   font-family: 'Arvo', serif;
   /*background-color:grey;*/
+}
+
+
+/*========= Client Directory Page ==========*/
+
+.client-directory img {
+  border:1px solid black;
 }

@@ -21,7 +21,7 @@
 			<h5>Purpose/Goal:</h5>
 			<p><%= @project.description %></p>
 			<h5>Remaining Balance:</h5>
-			<h3 style="color:orange;"><b>$<%= @project.balance %></b><br>
+			<h3><b>$<%= @project.balance %></b><br>
 				<p><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#updateBalanceModal">Update Balance
 				</button></p>
 			</h3>
@@ -31,7 +31,7 @@
 			<div class="row" id="show-page-right-half">
 				<div class="col-md-12 show-page-right-box-small">
 					<div class="row h-100">
-						<div class="col-md-4 h-100" style="border-right:1px solid orange;">
+						<div class="col-md-4 h-100">
 
 							<div class="progress">
 							  <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width:<%= @project.percent_complete %>%"  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
@@ -64,7 +64,7 @@
 
 							<div class="row text-center">
 								<div class="col-md-12">
-									<h3>Updates</h3>
+									<h2>Updates</h2>
 									<br>
 									<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateFormModal">
 									  Add a New Update
@@ -75,10 +75,10 @@
 
 								
 							</div>
-							<hr style="width:75%;margin-left:10%;margin-bottom:2rem;visibility:hidden;">
+							<hr>
 							<div class="row" id="updates-table">
 								<% if @notes.empty? %>
-									<h3 class="text-center" style="color:orange;">Updates Will Be Listed Here As They Are Published</h3>
+									<h3 class="text-center">Updates Will Be Listed Here As They Are Published</h3>
 								<% else %>
 
 								<table class="table" style="border-collapse:collapse;">
@@ -102,9 +102,9 @@
 									    </tr>
 
 									    <tr>
-									    	<td colspan="6" class="hiddenRow" style="padding:0;">
-									    		<div id="update<%= note.id %>" class="accordion-body collapse" style="padding:0;">
-									    			<p style="padding:20px;"><%= note.body %></p>
+									    	<td colspan="6" class="hiddenRow">
+									    		<div id="update<%= note.id %>" class="accordion-body collapse">
+									    			<p><%= note.body %></p>
 									    		</div>
 									    	</td>
 									    </tr>

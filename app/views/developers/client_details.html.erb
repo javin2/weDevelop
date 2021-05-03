@@ -10,7 +10,15 @@
 					<div class="col-md-4 mb-4">
 
 						<div class="card">
-							<div class="card-header"><h4 class="card-title"><b><%= pm.client.company_name %></b></h4></div>
+							<div class="card-header"><h4 class="card-title"><b><%= pm.client.company_name %></b></h4>
+
+								<% if pm.client.profile_photo.url == nil %>
+						          <img class="rounded-circle" alt="100x100" width="150" height="150" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+						        <% else %>
+						          <%= image_tag(pm.client.profile_photo.url(:client_card), class: 'rounded-circle') %>
+						        <% end %>
+
+							</div>
 
 								<div class="card-body">
 
@@ -20,6 +28,7 @@
 									<p>Rate: <b>$<%= pm.client.rate %>/hr</b></p>
 									<p>Address: <b><%= pm.client.street_address %></b></p>
 									<p><b><%= pm.client.city %></b>, <b><%= pm.client.state %></b>, <b><%= pm.client.zipcode %></b></p>
+									
 
 								</div>
 

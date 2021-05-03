@@ -90,7 +90,7 @@
       <div class="row mb-4">
 
         <div class="offset-md-4 col-md-3 text-center field">
-          <b><%= f.label :current_password %> <i>(required)</i><br /></b>
+          <b><%= f.label :current_password %> <i style="color:red;">(required)</i><br /></b>
           <%= f.password_field :current_password %>
         </div>
 
@@ -208,11 +208,11 @@
       </div>
 
       <div class="col-md-3 field">
-        <b><%= f.label :current_password %> <i>*required*</i><br /></b>
+        <b><%= f.label :current_password %> <i style="color:red;">*required*</i><br /></b>
         <%= f.password_field :current_password %>
       </div>
 
-      <div class="col-md-3 field">
+      <div class="col-md-12 field text-center">
         <b><%= f.label :profile_photo %> <br /></b>
         <%= f.file_field :profile_photo %>
       </div>
