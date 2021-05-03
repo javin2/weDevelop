@@ -45,8 +45,14 @@ class ProjectsController < ApplicationController
   end
 
   def update
+
+    old_completion_date = @project.projected_completion
+    old_percentage = @project.percent_complete
+    old_balance = @project.balance
+
     respond_to do |format|
       if @project.update(project_params)
+        create_update_with_change(old_completion_date, old_percentage, old_balance)
         format.html {redirect_to @project, notice: "Updated Successfully"}
       else
         format.html {render :edit, status: :unprocessable_entity}
@@ -66,8 +72,24 @@ class ProjectsController < ApplicationController
   		@project = current_developer.projects.find(params[:id])
   	end
 
+
+
   	def project_params
-  		params.require(:project).permit(:projected_completion, :title, :description, :percent_complete, :balance)
+  		params.require(:project).permit(:projected_completion, :title, :description, :percent_complete, :balance, note_attributes: [:id, :developer_id, :title, :body])
   	end
+
+    # Method to create an update when the developer modifies one of the project details (ensures that the client doesn't go unaware when critical details are changed)
+
+    def create_update_with_change(old_completion_date, old_percentage, old_balance)
+      if @project.projected_completion != old_completion_date
+        @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Projected Completion Updated By #{current_developer.first_name}", body: "The Project's projected completion date was changed from #{old_completion_date} to #{@project.projected_completion} by #{current_developer.first_name}")
+      elsif @project.percent_complete != old_percentage
+        @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Projected Progress Updated By #{current_developer.first_name}", body: "The Project's projected completion date was changed from #{old_percentage} percent complete to #{@project.percent_complete} percent complete by #{current_developer.first_name}")
+      elsif old_balance != @project.balance
+        @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Project Balance Updated By #{current_developer.first_name}", body: "The Project's Balance date was changed from #{old_balance} to #{@project.balance} by #{current_developer.first_name}")
+      else
+
+      end
+    end
   
 end
