@@ -31,17 +31,18 @@
 			<div class="row" id="show-page-right-half">
 				<div class="col-md-12 show-page-right-box-small">
 					<div class="row h-100">
-						<div class="col-md-4 h-100 d-flex justify-content-center" style="border-right:1px solid orange;">
+						<div class="col-md-4 h-100" style="border-right:1px solid orange;">
+
 							<div class="progress">
 							  <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width:<%= @project.percent_complete %>%"  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-							  <div class="progress-bar-title text-center"><%= @project.percent_complete %>% complete</div>						  
+							  <div class="progress-bar-title text-center"><%= @project.percent_complete %>% complete</div>
 							</div>
 
-							<p><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#updateCompletionPercentageModal">Update Completion Percentage</button></p>
-							
-								
-						
-						</div>					
+							<div class="text-center">
+								<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#updateCompletionPercentageModal">Update</button>
+							</div>
+						</div>
+
 						<div class="col-md-8 text-center">
 							<h5>Add a Client to your project!</h5>
 		
@@ -62,21 +63,19 @@
 						<div class="col-md-12 justify-content-center updates-section" id="">
 
 							<div class="row text-center">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<h3>Updates</h3>
-								</div>
-
-								<div class="col-md-4">
-
-							<!-- Button trigger modal -->
-									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateFormModal">
+									<br>
+									<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateFormModal">
 									  Add a New Update
 									</button>
 								</div>
 
 								
+
+								
 							</div>
-							<hr style="width:75%;margin-left:10%;margin-bottom:2rem;">
+							<hr style="width:75%;margin-left:10%;margin-bottom:2rem;visibility:hidden;">
 							<div class="row" id="updates-table">
 								<% if @notes.empty? %>
 									<h3 class="text-center" style="color:orange;">Updates Will Be Listed Here As They Are Published</h3>
@@ -103,8 +102,10 @@
 									    </tr>
 
 									    <tr>
-									    	<td colspan="6" class="hiddenRow">
-									    		<div id="update<%= note.id %>" class="accordion-body collapse"><%= note.body %></div>
+									    	<td colspan="6" class="hiddenRow" style="padding:0;">
+									    		<div id="update<%= note.id %>" class="accordion-body collapse" style="padding:0;">
+									    			<p style="padding:20px;"><%= note.body %></p>
+									    		</div>
 									    	</td>
 									    </tr>
 									    
@@ -146,18 +147,20 @@
 	        	<%= form_for [@project, @project.notes.build] do |f| %>
 
 	        		<div class="form-group">								
-					<%= f.text_field :title, placeholder: "Enter a Title", size: "30", required: true %>
+						<%= f.text_field :title, placeholder: "Enter a Title", size: "30", required: true %>
 					</div>
 					<br>
 					<div class="form-group">
-					<%= f.text_area :body, placeholder: "Enter your update here", cols: "30", rows: "10", required: true %>
+						<%= f.text_area :body, placeholder: "Enter your update here", cols: "30", rows: "10", required: true %>
 					</div>
 					
-
+					<!-- the solution to this issue of the submit button not working until after page refresh was solved by moving this submit button into the same div as rest of form -->
+					<br>
+					<%= f.submit "Submit Update", class: 'btn btn-primary' %>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-	        <%= f.submit "Submit Update", class: 'btn btn-primary' %>
+	        
+	        
 								
 			<% end %>
 	      </div>
@@ -181,13 +184,15 @@
 	        		<div class="form-group">								
 					<%= f.date_select :projected_completion %>
 					</div>
+					<br>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	        		<%= f.submit "Submit", class: 'btn btn-primary' %>
 					
 					
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-	        <%= f.submit "Submit", class: 'btn btn-primary' %>
+	        
 								
 			<% end %>
 	      </div>
@@ -212,13 +217,14 @@
 	        		<div class="form-group">								
 					<%= f.number_field :balance %>
 					</div>
-					
+					<br>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	        		<%= f.submit "Submit", class: 'btn btn-primary' %>
 					
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-	        <%= f.submit "Submit", class: 'btn btn-primary' %>
+	       
 								
 			<% end %>
 	      </div>
@@ -243,13 +249,15 @@
 	        		<div class="form-group">								
 					<%= f.number_field :percent_complete %>
 					</div>
+					<br>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	        		<%= f.submit "Submit", class: 'btn btn-primary' %>
 					
 					
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-	        <%= f.submit "Submit", class: 'btn btn-primary' %>
+	        
 								
 			<% end %>
 	      </div>

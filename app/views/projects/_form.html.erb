@@ -17,7 +17,7 @@
 
 		<div class="field">
 			<h3><%= form.label :title, "Come up with a great title!" %></h3><br>
-			<p><%= form.text_field :title, size: "50" %></p>
+			<p><%= form.text_field :title, size: "50", required: true %></p>
 		</div>
 
 	</div>
@@ -25,7 +25,7 @@
 	<div class="col-md-12">
 		<div class="field">
 			<h3><%= form.label :description, "Tell us a bit about the project (purpose, functionality, etc)" %></h3><br>
-			<p><%= form.text_area :description, cols: "50", rows: "5" %></p>
+			<p><%= form.text_area :description, cols: "50", rows: "5", required: true %></p>
 		</div>
 	</div>
 
@@ -36,7 +36,7 @@
 
 		<div class="field">
 			<h3><%= form.label :percent_complete, "How much of the project is already completed? (0-100, a brand new project would be '0')" %></h3><br>
-			<p><%= form.number_field :percent_complete %></p>
+			<p><%= form.number_field :percent_complete, required: true %></p>
 		</div>
 
 		<div class="field">

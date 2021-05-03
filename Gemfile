@@ -22,6 +22,8 @@ gem 'carrierwave', '~> 2.0'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'figaro'
+gem 'stripe'
+gem 'toastr-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
