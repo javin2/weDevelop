@@ -45,6 +45,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @project.update(project_params)
+        format.html {redirect_to @project, notice: "Updated Successfully"}
+      else
+        format.html {render :edit, status: :unprocessable_entity}
+      end
+    end
   end
 
   def destroy
