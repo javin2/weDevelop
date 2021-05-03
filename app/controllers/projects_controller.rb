@@ -82,9 +82,9 @@ class ProjectsController < ApplicationController
 
     def create_update_with_change(old_completion_date, old_percentage, old_balance)
       if @project.projected_completion != old_completion_date
-        @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Projected Completion Updated By #{current_developer.first_name}", body: "The Project's projected completion date was changed from #{old_completion_date} to #{@project.projected_completion} by #{current_developer.first_name}")
+        @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Projected Completion Date Updated By #{current_developer.first_name}", body: "The Project's projected completion date was changed from #{old_completion_date} to #{@project.projected_completion} by #{current_developer.first_name}")
       elsif @project.percent_complete != old_percentage
-        @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Projected Progress Updated By #{current_developer.first_name}", body: "The Project's projected completion date was changed from #{old_percentage} percent complete to #{@project.percent_complete} percent complete by #{current_developer.first_name}")
+        @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Project Completion Percentage Updated By #{current_developer.first_name}", body: "The Project's completion percentage was updated from #{old_percentage} percent complete to #{@project.percent_complete} percent complete by #{current_developer.first_name}")
       elsif old_balance != @project.balance
         @project.notes.create(project_id: @project, developer_id: current_developer.id, title: "Project Balance Updated By #{current_developer.first_name}", body: "The Project's Balance date was changed from #{old_balance} to #{@project.balance} by #{current_developer.first_name}")
       else
