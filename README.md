@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app uses Rails 6 and you will need Ruby 3.0.0 to run and work with it
 
-Things you may want to cover:
+If you clone the project down, you will need to set up AWS environment variables (using keys from your aws account). The keys we used for this project were hidden from upload to github.
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
