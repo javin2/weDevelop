@@ -46,12 +46,12 @@
 						<% if @project_members.blank? %>
 							<h1>You aren't currently connected with any developers</h1>
 						<% else %>
-							<% @project_members.each do |pm| %>
+							<% @project_members.map(&:developer).uniq.each do |pm| %>
 								
 								<div class="card text-center mb-3">
-									<h3 class="card-title"><%= pm.developer.first_name %></h3>
-									<p>email: <%= pm.developer.email %></p>
-									<h5><b><%= pm.developer.company_name %></b></h5>
+									<h3 class="card-title"><%= pm.first_name %></h3>
+									<p>email: <%= pm.email %></p>
+									<h5><b><%= pm.company_name %></b></h5>
 								</div>
 								
 							<% end %>
