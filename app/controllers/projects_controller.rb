@@ -53,6 +53,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update(project_params)
         create_update_with_change(old_completion_date, old_percentage, old_balance)
+        SiteMailer.new_update(Client.find(params[:client]), current_developer).deliver_now
         format.html {redirect_to @project, notice: "Updated Successfully"}
       else
         format.html {render :edit, status: :unprocessable_entity}

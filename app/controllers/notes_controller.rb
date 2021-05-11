@@ -17,6 +17,7 @@ class NotesController < ApplicationController
 
   	respond_to do |format|
   		if @note.save
+        SiteMailer.new_update(Client.find(params[:client]), current_developer).deliver_now
   			format.html {redirect_to @project, notice: 'Your update was created successfully!'}
   		else
   			format.html {render @project, status: :unprocessable_entity}

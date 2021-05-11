@@ -153,6 +153,9 @@
 					<div class="form-group">
 						<%= f.text_area :body, placeholder: "Enter your update here", cols: "30", rows: "10", required: true %>
 					</div>
+					<% @project_members.each do |pm| %>
+						<%= hidden_field_tag :client, pm.client.id %>
+					<% end %>
 					
 					<!-- the solution to this issue of the submit button not working until after page refresh was solved by moving this submit button into the same div as rest of form -->
 					<br>
@@ -185,6 +188,9 @@
 					<%= f.date_select :projected_completion %>
 					</div>
 					<br>
+					<% @project_members.each do |pm| %>
+						<%= hidden_field_tag :client, pm.client.id %>
+					<% end %>
 					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 	        		<%= f.submit "Submit", class: 'btn btn-primary' %>
 					
@@ -218,6 +224,9 @@
 					<%= f.number_field :balance %>
 					</div>
 					<br>
+					<% @project_members.each do |pm| %>
+						<%= hidden_field_tag :client, pm.client.id %>
+					<% end %>
 					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 	        		<%= f.submit "Submit", class: 'btn btn-primary' %>
 					
@@ -250,6 +259,9 @@
 					<%= f.number_field :percent_complete %>
 					</div>
 					<br>
+					<% @project_members.each do |pm| %>
+						<%= hidden_field_tag :client, pm.client.id %>
+					<% end %>
 					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 	        		<%= f.submit "Submit", class: 'btn btn-primary' %>
 					
