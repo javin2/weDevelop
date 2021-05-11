@@ -4,13 +4,13 @@
 	</div>
 
 
-		<div class="row text-center">
+		<div class="row">
 			
 	
 
 			<div class="col-md-4 dashboard-section">
 				<div class="card h-100">
-					<div class="card-header">
+					<div class="card-header text-center">
 						<h2 class="card-title">Projects</h2>
 					</div>
 					<div class="card-body">
@@ -25,7 +25,7 @@
 							</div>
 						<% end %>
 					</div>
-					<div class="card-footer bg-transparent">
+					<div class="card-footer bg-transparent text-center">
 						<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newProjectModal">
 						Create New Project
 						</button>
@@ -37,22 +37,33 @@
 
 			<div class="col-md-4 dashboard-section">
 				<div class="card h-100">
-					<div class="card-header">
+					<div class="card-header text-center">
 						<h2 class="card-title">Clients</h2>
 					</div>
 					<div class="card-body">
 
 						<% @project_members.map(&:client).uniq.each do |pm| %>
 							<% if pm != nil %>
-								<div class="card text-center mb-3">
-									<h3 class="card-title"><%= pm.first_name %></h3>
-									<p>email: <%= pm.email %></p>
-									<h5><b><%= pm.company_name %></b></h5>
+								<div class="card mb-3">
+									<div class="row">
+										<div class="col-4">
+											<% if pm.profile_photo.url == nil %>
+									          <img class="img-fluid" alt="50x50" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+									        <% else %>
+									          <%= image_tag(pm.profile_photo.small.url, class: 'img-fluid') %>
+									        <% end %>
+										</div>
+										<div class="col-8 text-left">
+											<h3 class="card-title"><%= pm.first_name %></h3>
+											<p>email: <%= pm.email %></p>
+											<h5><b><%= pm.company_name %></b></h5>
+										</div>
+									</div>
 								</div>
 							<% end %>
 						<% end %>
 					</div>
-					<div class="card-footer bg-transparent">
+					<div class="card-footer bg-transparent text-center">
 						<%= link_to "View Client Directory", developers_client_details_path, class: 'btn btn-primary btn-sm' %>
 					</div>
 				</div>
@@ -62,7 +73,7 @@
 
 			<div class="col-md-4 dashboard-section">
 				<div class="card h-100">
-					<div class="card-header">
+					<div class="card-header text-center">
 						<h2 class="card-title">Client Requests</h2>
 					</div>
 					<div class="card-body">
