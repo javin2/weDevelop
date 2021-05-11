@@ -5,6 +5,7 @@ class DevelopersController < ApplicationController
   def dashboard
   	@projects = current_developer.projects
   	@project_members = current_developer.project_members
+  	@project = Project.new
   end
 
   def client_details

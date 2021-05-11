@@ -19,7 +19,7 @@
 						<% else %>
 							<% @project_members.each do |pm| %>
 								<div class="card text-center mb-3">
-									<h3 class="card-title"><%= pm.project.title %></h3>
+									<h3 class="card-title"><%= truncate(pm.project.title, :length => 24) %></h3>
 								
 									<p>by: <b><%= pm.developer.first_name %> <%=pm.developer.last_name %> (<%=pm.developer.company_name %>)</b></p>
 								
