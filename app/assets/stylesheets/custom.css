@@ -192,7 +192,7 @@ ul li {
 
 .dashboard-section img {
   width:100px;
-  height:100px;
+  height:113px;
 }
 
 
@@ -345,4 +345,6 @@ ul li {
 
 .client-directory img {
   border:1px solid black;
+  height:150px;
+  width:150px;
 }

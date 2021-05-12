@@ -8,6 +8,12 @@
 			<h2 class="text-center"><%=@project.title %><hr></h2>
 
 			<h5>Developer:</h5>
+
+			<% if @project.developer.profile_photo.url == nil %>
+	          <img class="img-fluid rounded-circle" alt="50x50" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+	        <% else %>
+	          <%= image_tag(@project.developer.profile_photo.client_card.url, class: 'img-fluid rounded-circle') %>
+	        <% end %>
 		
 			<p>- <%= @project.developer.first_name %> at <%= @project.developer.company_name %><br>
 				Contact: <%= @project.developer.email %></p>

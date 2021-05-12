@@ -4,30 +4,29 @@
 
 		<div class="row">
 
-			<% @projects.each do |project| %>
-
-				<% project.project_members.each do |pm| %>
+			<% @project_members.map(&:client).uniq.each do |pm| %>
+				<% if pm != nil %>
 					<div class="col-md-4 mb-4">
 
 						<div class="card">
-							<div class="card-header"><h4 class="card-title"><b><%= pm.client.company_name %></b></h4>
+							<div class="card-header"><h4 class="card-title"><b><%= pm.company_name %></b></h4>
 
-								<% if pm.client.profile_photo.url == nil %>
+								<% if pm.profile_photo.url == nil %>
 						          <img class="rounded-circle" alt="100x100" width="150" height="150" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
 						        <% else %>
-						          <%= image_tag(pm.client.profile_photo.url(:client_card), class: 'rounded-circle') %>
+						          <%= image_tag(pm.profile_photo.url(:client_card), class: 'rounded-circle') %>
 						        <% end %>
 
 							</div>
 
 								<div class="card-body">
 
-									<p>Contact: <b><%= pm.client.first_name %> <%= pm.client.last_name %></b></p>
-									<p>Phone: <b><%= pm.client.phone %></b></p>
-									<p>Email: <b><%= pm.client.email %></b></p>
-									<p>Rate: <b>$<%= pm.client.rate %>/hr</b></p>
-									<p>Address: <b><%= pm.client.street_address %></b></p>
-									<p><b><%= pm.client.city %></b>, <b><%= pm.client.state %></b>, <b><%= pm.client.zipcode %></b></p>
+									<p>Contact: <b><%= pm.first_name %> <%= pm.last_name %></b></p>
+									<p>Phone: <b><%= pm.phone %></b></p>
+									<p>Email: <b><%= pm.email %></b></p>
+									<p>Rate: <b>$<%= pm.rate %>/hr</b></p>
+									<p>Address: <b><%= pm.street_address %></b></p>
+									<p><b><%= pm.city %></b>, <b><%= pm.state %></b>, <b><%= pm.zipcode %></b></p>
 									
 
 								</div>
@@ -35,8 +34,7 @@
 
 						</div>
 
-					</div>
-				
+					</div>				
 				<% end %>
 
 			<% end %>

@@ -10,6 +10,7 @@ class DevelopersController < ApplicationController
 
   def client_details
   	@projects = current_developer.projects
+  	@project_members = current_developer.project_members
   end
   
 end
