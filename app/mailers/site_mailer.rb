@@ -23,7 +23,7 @@ class SiteMailer < ApplicationMailer
 		@client = client
 		@developer = developer
 		@project = project
-		mail(to: @developer.email, subject: 'You have a new message from a developer on one of your projects at weDevelop!')
+		mail(to: @developer.email, subject: 'You have a new message from a client on one of your projects at weDevelop!')
 	end
 
 
