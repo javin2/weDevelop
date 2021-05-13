@@ -20,15 +20,19 @@
 									</p>
 								</div>
 							<% else %>
-								<% @project.project_members.each do |pm| %>
-									<% @client = Client.find_by(id: pm.client) %>
+								
 								<div class="client-message">
 									<p><%= message.body %><br>
+										<% @project.project_members.each do |pm| %>
+										<% if pm.client_id == message.client_id %>
+										<% @client = Client.find_by(id: pm.client) %>
 										<i><span style="color:black;font-size:.7rem;">Posted By: <%= @client.first_name %> on <%= message.created_at.strftime("%m/%d/%Y") %></span></i>
+										<% end %>
+										<% end %>
 
 									</p>
 								</div>
-								<% end %>
+								
 							<% end %><br>					
 
 						<% end %>
