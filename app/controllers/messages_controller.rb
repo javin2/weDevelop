@@ -34,8 +34,9 @@ class MessagesController < ApplicationController
         else
           @project.project_members.each do |f|
             SiteMailer.notify_client_new_message(f.client, current_developer, @project).deliver_now
-            redirect_to project_conversation_path, notice: "Message was successfully created."
+            
           end
+          redirect_to project_conversation_path, notice: "Message was successfully created."
         end
 
       else
