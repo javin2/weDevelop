@@ -1,0 +1,79 @@
+<hr style="visibility:hidden;margin-top:1.5rem">
+<div class="container text-center" id="conversation-page">
+	<%= link_to "Back to Project", project_path(@conversation.project), class: 'btn btn-danger' %>
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newMessageModal">
+	  Send a Message
+	</button>
+			<div class="container" id="conversation-box" style="">
+
+				<div id="conversation-messages">
+
+					<% if @messages.blank? %>
+						<h3 style="color:orange;">No Messages in this Thread Yet!</h3>
+					<% else %>
+						<% @messages.each do |message| %>
+							<% if message.client_id == nil %>
+								<% @developer = @project.developer %>
+								<div class="developer-message">
+									<p><%= message.body %><br>
+										<i><span style="color:black;font-size:.7rem;">Posted By: <%= @developer.first_name %> on <%= message.created_at.strftime("%m/%d/%Y") %></span></i>
+									</p>
+								</div>
+							<% else %>
+								<% @project.project_members.each do |pm| %>
+									<% @client = Client.find_by(id: pm.client) %>
+								<div class="client-message">
+									<p><%= message.body %><br>
+										<i><span style="color:black;font-size:.7rem;">Posted By: <%= @client.first_name %> on <%= message.created_at.strftime("%m/%d/%Y") %></span></i>
+
+									</p>
+								</div>
+								<% end %>
+							<% end %><br>					
+
+						<% end %>
+					<% end %>
+
+				</div>
+			</div>
+
+		
+
+
+</div>
+
+
+<div class="modal fade" id="newMessageModal" tabindex="-1" aria-labelledby="newMessageModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="newMessageModalLabel">Create a Message</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body justify-content-center text-center">
+
+	      	<%= form_for [@project, @conversation, @conversation.messages.build] do |form| %>
+			  
+
+			  <div class="field">
+
+			    <%= form.text_area :body, cols: "48", rows: "7", required: true %><br><br>
+			  </div>
+
+			  <div class="actions">
+			    <%= form.submit "Send Message", class: 'btn btn-success' %>
+			  </div>
+			<% end %>
+
+	        	
+					
+
+	      </div>
+	      <div class="modal-footer">
+	       
+								
+			
+	      </div>
+	    </div>
+	  </div>
+	</div>	

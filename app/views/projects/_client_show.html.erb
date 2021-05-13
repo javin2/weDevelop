@@ -10,13 +10,17 @@
 			<h5>Developer:</h5>
 
 			<% if @project.developer.profile_photo.url == nil %>
-	          <img class="img-fluid rounded-circle" alt="50x50" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
+	          <img class="img-fluid rounded-circle" alt="50x50" height="150" width="150" src="https://wedevelop.s3-us-west-2.amazonaws.com/computer-1331579_640.png" data-holder-rendered="true">
 	        <% else %>
 	          <%= image_tag(@project.developer.profile_photo.client_card.url, class: 'img-fluid rounded-circle') %>
 	        <% end %>
 		
 			<p>- <%= @project.developer.first_name %> at <%= @project.developer.company_name %><br>
-				Contact: <%= @project.developer.email %></p>
+				Contact: <%= @project.developer.email %><br>
+				<%= link_to "Message", project_conversation_path(@project), class: 'btn btn-primary' %>
+			</p>
+
+
 
 			<h5>Projected Completion Date:</h5>
 			<p><%= @project.projected_completion.strftime("%m/%d/%Y") %></p>

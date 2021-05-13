@@ -32,10 +32,12 @@ class ProjectsController < ApplicationController
 
   	@project = Project.new(project_params)
   	@project.developer_id = current_developer.id
+    @project.build_conversation
   	# @project.project_members.new(developer: current_developer)
 
   	respond_to do |format|
   		if @project.save
+        
   			format.html {redirect_to @project, notice: "Your project was successfully created!"}
   		else
   			format.html {render :new, status: :unprocessable_entity}

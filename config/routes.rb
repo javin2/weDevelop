@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :project_members
     resources :notes
+    resource :conversation do 
+      resources :messages
+    end
   end
   root 'pages#home'
   
