@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_175612) do
+ActiveRecord::Schema.define(version: 2021_05_12_205025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 2021_04_26_175612) do
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_conversations_on_project_id"
+  end
+
   create_table "developers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -71,6 +78,18 @@ ActiveRecord::Schema.define(version: 2021_04_26_175612) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
+    t.bigint "developer_id"
+    t.bigint "client_id"
+    t.index ["client_id"], name: "index_messages_on_client_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["developer_id"], name: "index_messages_on_developer_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -104,6 +123,10 @@ ActiveRecord::Schema.define(version: 2021_04_26_175612) do
     t.index ["developer_id"], name: "index_projects_on_developer_id"
   end
 
+  add_foreign_key "conversations", "projects"
+  add_foreign_key "messages", "clients"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "developers"
   add_foreign_key "notes", "developers"
   add_foreign_key "notes", "projects"
   add_foreign_key "projects", "developers"

@@ -13,6 +13,7 @@
 				Contact: <%= pm.client.email %></p>
 
 			<% end %>
+			<%= link_to "Message", project_conversation_path(@project), class: 'btn btn-primary' %>
 			<h5>Projected Completion Date:</h5>
 			<p><%= @project.projected_completion.strftime("%m/%d/%Y") %> <br>
 			<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#updateCompletionModal">
